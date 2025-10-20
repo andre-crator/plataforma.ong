@@ -1,0 +1,5 @@
+[
+  { "nome": "Ana", "habilidades": ["Psicologia", "Escuta"], "disponibilidade": "Noite" },
+  { "nome": "Carlos", "habilidades": ["TI", "Segurança Digital"], "disponibilidade": "Tarde" },
+  { "nome": "Beatriz", "habilidades": ["Direito", "Mediação"], "disponibilidade":"Manhã"}
+]

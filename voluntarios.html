@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- Página: voluntarios.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+  <!-- Metadados básicos de acessibilidade/SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Noiva — Cadastro de Voluntário</title>
+  <meta name="description" content="Cadastre-se para ser voluntário na A Noiva e ajude no acolhimento e prevenção.">
+
+  <!-- CSS do projeto (ajuste o caminho se necessário) -->
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A Noiva — Plataforma oficial</title>
+  <meta name="description" content="A Noiva — ONG de acolhimento, prevenção e apoio a vítimas de abuso e famílias afetadas por tráfico de pessoas.">
+
+  <!-- Open Graph para redes sociais -->
+  <meta property="og:title" content="A Noiva — Plataforma oficial">
+  <meta property="og:description" content="Transparência, projetos, voluntariado e doações.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andre-crator.github.io/plataforma-ong/">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <h2>Cadastro de Voluntário</h2>
+
+    <!--
+      FORM COM VALIDAÇÃO NATIVA + MÁSCARAS
+      - "required" obriga preenchimento
+      - "type" e "pattern" validam formato
+      - Campos com id: cpf, tel, cep receberão máscaras via main.js
+    -->
+    <form action="#" method="post" novalidate aria-describedby="ajuda-form">
+      <p id="ajuda-form" class="texto-menor">
+        Preencha seus dados. Campos marcados com * são obrigatórios.
+      </p>
+
+      <!-- DADOS PESSOAIS -->
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <label for="nome">Nome completo *</label>
+        <input id="nome" name="nome" type="text" required minlength="3" placeholder="Seu nome completo">
+
+        <label for="email">E-mail *</label>
+        <input id="email" name="email" type="email" required placeholder="seuemail@exemplo.com">
+
+        <label for="cpf">CPF *</label>
+        <!-- pattern aceita tanto com pontuação quanto sem; a máscara coloca com pontuação -->
+        <input id="cpf" name="cpf" inputmode="numeric" required
+               minlength="11" maxlength="14"
+               pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})$"
+               placeholder="000.000.000-00">
+
+        <label for="tel">Telefone (WhatsApp) *</label>
+        <!-- Aceita formatos (00) 00000-0000 ou só dígitos (10-11) -->
+        <input id="tel" name="tel" inputmode="tel" required
+               minlength="10" maxlength="15"
+               pattern="^(\(\d{2}\)\s?\d{4,5}-\d{4}|\d{10,11})$"
+               placeholder="(00) 00000-0000">
+
+        <label for="nascimento">Data de nascimento *</label>
+        <input id="nascimento" name="nascimento" type="date" required>
+      </fieldset>
+
+      <!-- ENDEREÇO -->
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="cep">CEP *</label>
+        <input id="cep" name="cep" inputmode="numeric" required
+               minlength="8" maxlength="9"
+               pattern="^(\d{5}-\d{3}|\d{8})$"
+               placeholder="00000-000">
+
+        <label for="endereco">Logradouro *</label>
+        <input id="endereco" name="endereco" type="text" required placeholder="Rua, número">
+
+        <label for="bairro">Bairro *</label>
+        <input id="bairro" name="bairro" type="text" required>
+
+        <label for="cidade">Cidade *</label>
+        <input id="cidade" name="cidade" type="text" required>
+
+        <label for="uf">UF *</label>
+        <input id="uf" name="uf" type="text" required maxlength="2" pattern="^[A-Za-z]{2}$" placeholder="RJ">
+      </fieldset>
+
+      <!-- HABILIDADES E DISPONIBILIDADE -->
+      <fieldset>
+        <legend>Habilidades e Disponibilidade</legend>
+
+        <label for="habilidades">Habilidades (selecione as que se aplicam)</label>
+        <select id="habilidades" name="habilidades" multiple size="5" aria-describedby="ajuda-hab">
+          <option value="acolhimento">Acolhimento</option>
+          <option value="juridico">Apoio jurídico</option>
+          <option value="comunicacao">Comunicação</option>
+          <option value="tecnologia">Tecnologia</option>
+          <option value="administracao">Administração</option>
+        </select>
+        <p id="ajuda-hab" class="texto-menor">Segure Ctrl (ou Cmd) para selecionar múltiplas opções.</p>
+
+        <label for="disponibilidade">Disponibilidade (horas/semana) *</label>
+        <input id="disponibilidade" name="disponibilidade" type="number" min="1" max="40" required>
+
+        <fieldset>
+          <legend>Preferência de atuação</legend>
+          <label><input type="radio" name="atuacao" value="remoto" required> Remoto</label>
+          <label><input type="radio" name="atuacao" value="presencial"> Presencial</label>
+          <label><input type="radio" name="atuacao" value="hibrido"> Híbrido</label>
+        </fieldset>
+      </fieldset>
+
+      <!-- CONFIRMAÇÕES -->
+      <fieldset>
+        <legend>Confirmações</legend>
+        <label>
+          <input type="checkbox" name="termosepoliticas" required>
+          Li e concordo com os termos e políticas de privacidade *
+        </label>
+      </fieldset>
+
+      <button type="submit">Enviar inscrição</button>
+      <button type="reset" class="btn-secundario">Limpar</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; A Noiva — Projeto acadêmico. Todos os direitos reservados.</small>
+  </footer>
+
+  <!-- JS: primeiro o principal do site (se você usa), depois o de máscaras -->
+  <script defer src="../js/main.js" defer></script>
+</body>
+</html>

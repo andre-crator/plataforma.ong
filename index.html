@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Página: index.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+  <!-- Página inicial: semântica, performance, SEO -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Noiva — Início</title>
+  <meta name="description" content="A Noiva: acolhimento, prevenção e restauração para vítimas de abuso e tráfico." />
+  <link rel="stylesheet" href="/src/assets/css/reset.css" />
+  <link rel="stylesheet" href="/src/assets/css/styles.css" />
+</head>
+<body>
+  <!-- Parciais -->
+  <div id="header"></div>
+
+  <main id="conteudo">
+    <!-- HERO com <picture> para imagem responsiva -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">A Noiva — proteção e esperança</h1>
+        <p>Atuamos no acolhimento, prevenção e restauração de vítimas de abuso sexual e famílias afetadas pelo tráfico de pessoas.</p>
+        <p class="mt-2">
+          <a class="btn" href="/src/doacoes.html">Quero apoiar</a>
+          <a class="btn" href="/src/voluntariado.html" style="margin-left:8px;">Quero ser voluntário</a>
+        </p>
+
+        <!-- imagem responsiva com <picture> e loading="lazy" -->
+        <picture class="mt-3" aria-label="Imagem representativa de acolhimento">
+          <source srcset="https://picsum.photos/seed/hero/1000/400" media="(min-width: 720px)">
+          <img src="https://picsum.photos/seed/hero/700/300" alt="Acolhimento e proteção" loading="lazy">
+        </picture>
+      </div>
+    </section>
+
+    <!-- Projetos em destaque -->
+    <section class="section" aria-labelledby="proj-title">
+      <div class="container">
+        <h2 id="proj-title">Projetos em andamento</h2>
+        <p class="lead">Transparência, segurança e impacto social.</p>
+        <div class="cards">
+          <article class="card" aria-labelledby="p1">
+            <h3 id="p1">Acolhimento Imediato</h3>
+            <p>Abrigo temporário, suporte psicológico e rede de proteção.</p>
+            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
+          </article>
+          <article class="card" aria-labelledby="p2">
+            <h3 id="p2">Apoio Jurídico</h3>
+            <p>Atuação com órgãos competentes e responsabilização de agressores.</p>
+            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
+          </article>
+          <article class="card" aria-labelledby="p3">
+            <h3 id="p3">Reintegração Familiar</h3>
+            <p>Reconstrução de vínculos e segurança familiar.</p>
+            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria com 20 imagens (lazy) + dialog via gallery.js -->
+    <section class="section" aria-labelledby="gal-title">
+      <div class="container">
+        <h2 id="gal-title">Nossa atuação em imagens</h2>
+        <div class="gallery" aria-label="Galeria de fotos">
+          <!-- 20 placeholders -->
+          <img src="https://picsum.photos/seed/1/600/400" alt="Ação 1" loading="lazy">
+          <img src="https://picsum.photos/seed/2/600/400" alt="Ação 2" loading="lazy">
+          <img src="https://picsum.photos/seed/3/600/400" alt="Ação 3" loading="lazy">
+          <img src="https://picsum.photos/seed/4/600/400" alt="Ação 4" loading="lazy">
+          <img src="https://picsum.photos/seed/5/600/400" alt="Ação 5" loading="lazy">
+          <img src="https://picsum.photos/seed/6/600/400" alt="Ação 6" loading="lazy">
+          <img src="https://picsum.photos/seed/7/600/400" alt="Ação 7" loading="lazy">
+          <img src="https://picsum.photos/seed/8/600/400" alt="Ação 8" loading="lazy">
+          <img src="https://picsum.photos/seed/9/600/400" alt="Ação 9" loading="lazy">
+          <img src="https://picsum.photos/seed/10/600/400" alt="Ação 10" loading="lazy">
+          <img src="https://picsum.photos/seed/11/600/400" alt="Ação 11" loading="lazy">
+          <img src="https://picsum.photos/seed/12/600/400" alt="Ação 12" loading="lazy">
+          <img src="https://picsum.photos/seed/13/600/400" alt="Ação 13" loading="lazy">
+          <img src="https://picsum.photos/seed/14/600/400" alt="Ação 14" loading="lazy">
+          <img src="https://picsum.photos/seed/15/600/400" alt="Ação 15" loading="lazy">
+          <img src="https://picsum.photos/seed/16/600/400" alt="Ação 16" loading="lazy">
+          <img src="https://picsum.photos/seed/17/600/400" alt="Ação 17" loading="lazy">
+          <img src="https://picsum.photos/seed/18/600/400" alt="Ação 18" loading="lazy">
+          <img src="https://picsum.photos/seed/19/600/400" alt="Ação 19" loading="lazy">
+          <img src="https://picsum.photos/seed/20/600/400" alt="Ação 20" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/src/assets/js/main.js" defer></script>
+  <script src="/src/assets/js/gallery.js" defer></script>
+</body>
+</html>

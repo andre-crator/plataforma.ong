@@ -1,0 +1,29 @@
+[
+  {
+    "id": "p001",
+    "titulo": "Acolhimento Imediato",
+    "categoria": "Proteção",
+    "regiao": "RJ",
+    "descricao": "Atendimento inicial e abrigo temporário para vítimas.",
+    "meta": 50000,
+    "arrecadado": 21500
+  },
+  {
+    "id": "p002",
+    "titulo": "Apoio Jurídico",
+    "categoria": "Justiça",
+    "regiao": "RJ",
+    "descricao": "Acompanhamento jurídico para responsabilização dos agressores.",
+    "meta": 30000,
+    "arrecadado": 12000
+  },
+  {
+    "id": "p003",
+    "titulo": "Reintegração Familiar",
+    "categoria": "Restauração",
+    "regiao": "SP",
+    "descricao": "Trabalho com famílias e rede de apoio para reintegração segura.",
+    "meta": 40000,
+    "arrecadado":15000
+}
+]

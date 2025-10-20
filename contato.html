@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Página: contato.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+  <!-- Metas + CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Noiva — Contato Institucional</title>
+  <meta name="description" content="Contato institucional com a A Noiva.">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav aria-label="principal">
+      <a href="../index.html">Início</a>
+      <a href="../sobre.html">Sobre</a>
+      <a href="../projetos.html">Projetos</a>
+      <a href="../contato.html" aria-current="page">Contato</a>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <h1>Contato Institucional</h1>
+
+    <!--
+      FORM DE CONTATO
+      - Assunto: select com opções comuns
+      - Mensagem: requerida
+      - Anexo opcional
+      - Campo e-mail com type=email
+    -->
+    <form action="#" method="post" novalidate aria-describedby="ajuda-contato">
+      <p id="ajuda-contato" class="texto-menor">
+        Envie sua mensagem — responderemos o quanto antes.
+      </p>
+
+      <fieldset>
+        <legend>Identificação</legend>
+
+        <label for="nome">Nome *</label>
+        <input id="nome" name="nome" type="text" required minlength="3">
+
+        <label for="email">E-mail *</label>
+        <input id="email" name="email" type="email" required placeholder="seuemail@exemplo.com">
+
+        <label for="tel">Telefone (WhatsApp)</label>
+        <input id="tel" name="tel" inputmode="tel"
+               minlength="10" maxlength="15"
+               pattern="^(\(\d{2}\)\s?\d{4,5}-\d{4}|\d{10,11})$"
+               placeholder="(00) 00000-0000">
+      </fieldset>
+
+      <fieldset>
+        <legend>Mensagem</legend>
+
+        <label for="assunto">Assunto *</label>
+        <select id="assunto" name="assunto" required>
+          <option value="">Selecione…</option>
+          <option value="parceria">Parceria</option>
+          <option value="imprensa">Imprensa</option>
+          <option value="doacao">Doação</option>
+          <option value="outros">Outros</option>
+        </select>
+
+        <label for="mensagem">Mensagem *</label>
+        <textarea id="mensagem" name="mensagem" rows="6" required
+          placeholder="Escreva sua mensagem com detalhes…"></textarea>
+
+        <label for="anexo">Anexo (PDF/Imagem) — opcional</label>
+        <input id="anexo" name="anexo" type="file" accept=".pdf,.png,.jpg,.jpeg">
+      </fieldset>
+
+      <button type="submit">Enviar</button>
+      <button type="reset" class="btn-secundario">Limpar</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; A Noiva — Projeto acadêmico.</small>
+  </footer>
+
+  <!-- JS de máscaras (para telefone) -->
+  <script defer src="../js/main.js" defer></script>
+</body>
+</html>

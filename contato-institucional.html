@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Página: contato-institucional.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+    <meta name="description" content="Página Contato-Institucional da Plataforma ONG.">
+
+  <meta charset="UTF-8" />
+  <title>A Noiva • Contato Institucional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header data-include="header">
+    <meta name="description" content="Página Contato-Institucional da Plataforma ONG.">
+</header>
+
+<main class="container">
+  <h1>Contato Institucional</h1>
+  <form novalidate>
+    <fieldset>
+      <legend>Mensagem</legend>
+      <label for="assunto">Assunto*</label>
+      <select id="assunto" name="assunto" required>
+        <option value="">Selecione…</option>
+        <option>Parcerias</option>
+        <option>Imprensa</option>
+        <option>Doações</option>
+        <option>Outros</option>
+      </select>
+
+      <label for="mensagem">Mensagem*</label>
+      <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+
+      <label for="anexo">Anexos (opcional, PDF/Imagem)</label>
+      <input id="anexo" name="anexo" type="file" accept=".pdf,image/*" multiple />
+    </fieldset>
+
+    <fieldset>
+      <legend>Contato</legend>
+      <label for="email">E-mail*</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" type="tel" data-mask="phone"
+             pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$" placeholder="(21) 99999-9999" />
+    </fieldset>
+
+    <button type="submit" class="btn-primary">Enviar</button>
+  </form>
+</main>
+
+<footer data-include="footer"></footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

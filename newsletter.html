@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Página: newsletter.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+    <meta name="description" content="Página Newsletter da Plataforma ONG.">
+
+  <meta charset="UTF-8" />
+  <title>A Noiva • Assinar Newsletter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header data-include="header">
+    <meta name="description" content="Página Newsletter da Plataforma ONG.">
+</header>
+
+<main class="container">
+  <h1>Assinar Newsletter</h1>
+  <form novalidate>
+    <fieldset>
+      <legend>Inscrição</legend>
+      <label for="email">E-mail*</label>
+      <input id="email" name="email" type="email" required />
+
+      <p>Preferências de conteúdo:</p>
+      <label><input type="checkbox" name="pref" value="projetos" /> Projetos e resultados</label>
+      <label><input type="checkbox" name="pref" value="voluntariado" /> Oportunidades de voluntariado</label>
+      <label><input type="checkbox" name="pref" value="eventos" /> Eventos e campanhas</label>
+    </fieldset>
+
+    <button type="submit" class="btn-primary">Assinar</button>
+  </form>
+</main>
+
+<footer data-include="footer"></footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

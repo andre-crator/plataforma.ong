@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Página: doacoes.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A Noiva — Plataforma oficial</title>
+  <meta name="description" content="A Noiva — ONG de acolhimento, prevenção e apoio a vítimas de abuso e famílias afetadas por tráfico de pessoas.">
+
+  <!-- Open Graph para redes sociais -->
+  <meta property="og:title" content="A Noiva — Plataforma oficial">
+  <meta property="og:description" content="Transparência, projetos, voluntariado e doações.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andre-crator.github.io/plataforma-ong/">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div id="header"></div>
+  <main class="container">
+  <h1>Doações</h1>
+  <p>Ajude-nos a proteger crianças e famílias. Sua contribuição mantém acolhimentos, suporte jurídico e reintegração.</p>
+
+  <section aria-labelledby="tipos-doacao">
+    <h2 id="tipos-doacao">Como doar</h2>
+    <ul>
+      <li>Pix: <strong>doacoes@anoiva.org.br</strong></li>
+      <li>Cartão de crédito</li>
+      <li>Depósito bancário</li>
+      <li>Doação recorrente (mensal)</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="form-doacao">
+    <h2 id="form-doacao">Faça uma doação agora</h2>
+    <form novalidate>
+      <label for="valor">Valor (R$)*</label>
+      <input id="valor" name="valor" type="number" inputmode="decimal" min="5" step="5" required />
+
+      <label for="email">E-mail*</label>
+      <input id="email" name="email" type="email" required />
+
+      <fieldset>
+        <legend>Periodicidade</legend>
+        <label><input type="radio" name="periodo" value="unica" required> Única</label>
+        <label><input type="radio" name="periodo" value="mensal"> Mensal</label>
+      </fieldset>
+
+      <button class="btn-primary" type="submit">Doar</button>
+    </form>
+  </section>
+</main>
+  <div id="footer"></div>
+  <script src="/src/assets/js/main.js" defer></script>
+</body>
+</html>

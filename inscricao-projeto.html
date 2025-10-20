@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Página: inscricao-projeto.html | Comentários leves para documentação -->
+<html lang=\"pt-BR\" lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>A Noiva • Inscrição em Projeto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <meta name="description" content="Inscreva-se para atuar em um projeto social da ONG A Noiva." />
+</head>
+<body>
+<header data-include="header"></header>
+
+<main class="container">
+  <h1>Inscrição em Projeto</h1>
+  <form novalidate>
+    <fieldset>
+      <legend>Identificação</legend>
+      <label for="email">E-mail*</label>
+      <input id="email" name="email" type="email" required autocomplete="email" />
+
+      <label for="telefone">Telefone*</label>
+      <input id="telefone" name="telefone" type="tel" data-mask="phone"
+             pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$" required placeholder="(21) 99999-9999" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Projeto</legend>
+      <label for="projeto">Projeto de Interesse*</label>
+      <select id="projeto" name="projeto" required>
+        <option value="">Selecione…</option>
+        <option value="acolhimento">Acolhimento a vítimas</option>
+        <option value="prevencao">Prevenção e educação</option>
+        <option value="assistencia-juridica">Assistência jurídica</option>
+        <option value="reintegracao">Reintegração familiar</option>
+      </select>
+
+      <label for="experiencia">Experiência prévia (se houver)</label>
+      <textarea id="experiencia" name="experiencia" rows="4" placeholder="Conte se já atuou em iniciativas semelhantes"></textarea>
+
+      <label for="disponibilidade">Disponibilidade*</label>
+      <select id="disponibilidade" name="disponibilidade" required>
+        <option value="">Selecione…</option>
+        <option>Segunda a Sexta</option>
+        <option>Finais de semana</option>
+        <option>Horários noturnos</option>
+      </select>
+    </fieldset>
+
+    <button type="submit" class="btn-primary">Inscrever</button>
+  </form>
+</main>
+
+<footer data-include="footer"></footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
