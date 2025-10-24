@@ -1,49 +1,151 @@
 <!DOCTYPE html>
-<!-- Página: sobre.html | Comentários leves para documentação -->
-<html lang=\"pt-BR\" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <!--
+    ============================================================
+    Plataforma ONG — SOBRE
+    Entrega I – Fundamentos e Estruturação
+    Requisitos demonstrados:
+      • Estrutura semântica (header/nav/main/footer)
+      • Hierarquia de títulos (1 H1)
+      • Multimídia: <video> institucional + <audio> (depoimento)
+      • Acessibilidade (aria, captions, descrição)
+      • Comentários explicativos para avaliação
+    ============================================================
+  -->
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre • Plataforma ONG</title>
+  <meta name="description" content="Quem somos, missão, valores e atuação da ONG." />
 
-  <title>A Noiva — Plataforma oficial</title>
-  <meta name="description" content="A Noiva — ONG de acolhimento, prevenção e apoio a vítimas de abuso e famílias afetadas por tráfico de pessoas.">
-
-  <!-- Open Graph para redes sociais -->
-  <meta property="og:title" content="A Noiva — Plataforma oficial">
-  <meta property="og:description" content="Transparência, projetos, voluntariado e doações.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://andre-crator.github.io/plataforma-ong/">
-  <meta property="og:image" content="assets/images/og-image.jpg">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div id="header"></div>
-  <main class="container">
-  <h1>Sobre “A Noiva”</h1>
-  <p>Somos uma ONG dedicada a acolher e proteger vítimas de abuso sexual e famílias afetadas por tráfico humano...</p>
+  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <header>
+    <nav aria-label="Navegação principal do site">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html" aria-current="page">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como Doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="blog.html">Blog/Notícias</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Vídeo institucional (pode ser local futuramente em src/assets/videos) -->
-  <section aria-labelledby="video-titulo">
-    <h2 id="video-titulo">Vídeo Institucional</h2>
-    <video controls preload="metadata" width="100%" poster="./assets/images/poster-video.jpg">
-      <source src="https://cdn.coverr.co/videos/coverr-helping-hands-4890/1080p.mp4" type="video/mp4">
-      Seu navegador não suporta o elemento de vídeo.
-    </video>
-  </section>
+  <!-- ========================= Conteúdo Principal ========================= -->
+  <main id="conteudo-principal">
+    <section class="card" aria-labelledby="titulo-sobre">
+      <!-- H1 único -->
+      <h1 id="titulo-sobre">Quem Somos</h1>
+      <p>
+        Somos uma organização dedicada a acolher, proteger e restaurar a dignidade de pessoas
+        em situação de vulnerabilidade, promovendo atendimento humanizado e redes de apoio.
+      </p>
+    </section>
 
-  <!-- Áudio com depoimento -->
-  <section aria-labelledby="audio-titulo">
-    <h2 id="audio-titulo">Depoimento em Áudio</h2>
-    <audio controls preload="metadata">
-      <source src="https://file-examples.com/storage/fe5b4d3b7a7a0896fe/audio.mp3" type="audio/mpeg">
-      Seu navegador não suporta o elemento de áudio.
-    </audio>
-  </section>
-</main>
-  <div id="footer"></div>
-  <script src="/src/assets/js/main.js" defer></script>
+    <!-- Missão, Visão, Valores (exemplo de semântica com subtítulos) -->
+    <section class="card" aria-labelledby="titulo-mvv">
+      <h2 id="titulo-mvv">Nossa essência</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Missão</h3>
+          <p>Garantir acolhimento seguro, suporte psicossocial e caminhos de autonomia.</p>
+        </article>
+        <article class="card">
+          <h3>Visão</h3>
+          <p>Ser referência em cuidado integral e articulação de redes de proteção.</p>
+        </article>
+        <article class="card">
+          <h3>Valores</h3>
+          <ul>
+            <li>Empatia e respeito</li>
+            <li>Transparência</li>
+            <li>Equidade</li>
+            <li>Responsabilidade social</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Multimídia: VÍDEO INSTITUCIONAL ================= -->
+    <section class="card" aria-labelledby="titulo-video">
+      <h2 id="titulo-video">Vídeo institucional</h2>
+      <!--
+        • Substitua assets/videos/institucional.mp4 e .webm pelos seus arquivos.
+        • preload="metadata" economiza banda.
+        • track (captions) melhora acessibilidade.
+      -->
+      <video
+        controls
+        preload="metadata"
+        width="960" height="540"
+        poster="assets/imagens/poster-institucional.jpg"
+        aria-label="Vídeo institucional da ONG com legendas">
+        <source src="assets/videos/institucional.webm" type="video/webm" />
+        <source src="assets/videos/institucional.mp4" type="video/mp4" />
+        <track kind="captions" srclang="pt-BR" label="Português (BR)"
+               src="assets/videos/institucional.vtt" default />
+        <!-- Fallback simples -->
+        Seu navegador não suporta vídeo HTML5. Baixe o arquivo
+        <a href="assets/videos/institucional.mp4">aqui</a>.
+      </video>
+      <small>Duração 1–2 min. Conteúdo: missão, atuação, convite ao engajamento.</small>
+    </section>
+
+    <!-- ================= Multimídia: ÁUDIO (Depoimento) ================= -->
+    <section class="card" aria-labelledby="titulo-audio">
+      <h2 id="titulo-audio">Depoimento em áudio</h2>
+      <!--
+        • Substitua assets/audios/depoimento.mp3 pelo seu arquivo.
+        • Forneça ao menos um formato (mp3). Ogg é opcional.
+      -->
+      <figure>
+        <figcaption>Relato sobre acolhimento e reconstrução (áudio curto):</figcaption>
+        <audio controls preload="metadata" aria-label="Depoimento de beneficiário">
+          <source src="assets/audios/depoimento.ogg" type="audio/ogg" />
+          <source src="assets/audios/depoimento.mp3" type="audio/mpeg" />
+          Seu navegador não suporta áudio HTML5. Baixe o arquivo
+          <a href="assets/audios/depoimento.mp3">aqui</a>.
+        </audio>
+      </figure>
+      <small>Dica: inclua um roteiro breve e obtenha autorização de uso de voz.</small>
+    </section>
+
+    <!-- Equipe / Rede (exemplo simples) -->
+    <section class="card" aria-labelledby="titulo-equipe">
+      <h2 id="titulo-equipe">Nossa rede</h2>
+      <ul class="grid">
+        <li class="card">
+          <h3>Atendimento Psicossocial</h3>
+          <p>Psicólogos(as) e assistentes sociais com escuta qualificada.</p>
+        </li>
+        <li class="card">
+          <h3>Operações e Logística</h3>
+          <p>Voluntários(as) em doações, triagem e distribuição.</p>
+        </li>
+        <li class="card">
+          <h3>Parcerias</h3>
+          <p>Conexões com serviços públicos e organizações da sociedade civil.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============================== Rodapé ============================== -->
+  <footer>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+  </footer>
+
+  <!-- ============================== Scripts ============================== -->
+  <script>
+    // Atualiza o ano no rodapé
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
