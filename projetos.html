@@ -1,148 +1,144 @@
 <!DOCTYPE html>
-<!-- Página: projetos.html | Comentários leves para documentação -->
-<html lang=\"pt-BR\" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-  <!-- Metas básicos + CSS do projeto -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A Noiva — Inscrição em Projeto</title>
-  <meta name="description" content="Inscreva-se em um projeto social da A Noiva.">
-  <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <!--
+    ============================================================
+    Plataforma ONG — PROJETOS
+    Entrega I – Fundamentos e Estruturação
+    Requisitos atendidos:
+      • Estrutura semântica (header/nav/main/footer)
+      • Formulário de inscrição em projetos
+      • Campos: dados pessoais, projeto, experiência, motivação
+      • Validação HTML5 + comentários explicativos
+    ============================================================
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos • Plataforma ONG</title>
+  <meta name="description" content="Inscreva-se para participar dos projetos sociais da ONG." />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Navegação simples (sem partial) -->
-  <header class="site-header">
-    <nav aria-label="principal">
-      <a href="../index.html">Início</a>
-      <a href="../projetos.html" aria-current="page">Projetos</a>
-      <a href="../voluntariado.html">Voluntariado</a>
-      <a href="../doacoes.html">Doações</a>
-      <a href="../transparencia.html">Transparência</a>
-      <a href="../contato.html">Contato</a>
-      <a href="../blog.html">Blog</a>
+  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <header>
+    <nav aria-label="Navegação principal do site">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como Doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="blog.html">Blog/Notícias</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="container">
-  <h1>Projetos</h1>
-  <p>Conheça nossas frentes de atuação e impactos.</p>
+  <!-- ========================= Conteúdo Principal ========================= -->
+  <main id="conteudo-principal">
+    <section class="card" aria-labelledby="titulo-proj">
+      <h1 id="titulo-proj">Projetos Sociais</h1>
+      <p>Escolha um dos projetos ativos e envie sua inscrição para participar.</p>
+    </section>
 
-  <!-- Galeria responsiva com <picture> e lazy-loading -->
-  <section aria-labelledby="galeria-titulo">
-    <h2 id="galeria-titulo">Galeria de Fotos</h2>
-    <div class="grid-photos">
-      <!-- 20 fotos usando placeholders do picsum. Troque por suas imagens depois: src/assets/images/... -->
-      <!-- Cada bloco utiliza <picture> para servir tamanhos diferentes conforme viewport -->
-      <!-- Exemplo 1 -->
-      <picture>
-        <source srcset="https://picsum.photos/seed/p1/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p1/300/200" alt="Ação social 1" loading="lazy">
-      </picture>
+    <!-- ===================== Formulário de inscrição ===================== -->
+    <section class="card" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Formulário de Inscrição</h2>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p2/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p2/300/200" alt="Ação social 2" loading="lazy">
-      </picture>
+      <form id="form-projetos" action="#" method="post" novalidate>
+        <!-- Dados pessoais -->
+        <fieldset>
+          <legend>Dados pessoais</legend>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p3/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p3/300/200" alt="Ação social 3" loading="lazy">
-      </picture>
+          <label for="nome">Nome completo *</label>
+          <input id="nome" name="nome" autocomplete="name" required />
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p4/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p4/300/200" alt="Ação social 4" loading="lazy">
-      </picture>
+          <label for="email">E-mail *</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p5/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p5/300/200" alt="Ação social 5" loading="lazy">
-      </picture>
+          <label for="tel">Telefone *</label>
+          <input id="tel" name="tel" type="tel" placeholder="(00) 00000-0000"
+                 pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" required />
+        </fieldset>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p6/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p6/300/200" alt="Ação social 6" loading="lazy">
-      </picture>
+        <!-- Projeto de interesse -->
+        <fieldset>
+          <legend>Projeto de interesse</legend>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p7/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p7/300/200" alt="Ação social 7" loading="lazy">
-      </picture>
+          <label for="projeto">Selecione o projeto *</label>
+          <select id="projeto" name="projeto" required>
+            <option value="">Selecione...</option>
+            <option>Projeto Esperança</option>
+            <option>Casa de Acolhimento</option>
+            <option>Rede de Apoio</option>
+            <option>Oficinas de Capacitação</option>
+          </select>
+        </fieldset>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p8/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p8/300/200" alt="Ação social 8" loading="lazy">
-      </picture>
+        <!-- Experiência e motivação -->
+        <fieldset>
+          <legend>Experiência e motivação</legend>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p9/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p9/300/200" alt="Ação social 9" loading="lazy">
-      </picture>
+          <label for="experiencia">Experiência prévia *</label>
+          <textarea id="experiencia" name="experiencia" rows="4" required
+                    placeholder="Descreva brevemente sua experiência anterior com projetos sociais."></textarea>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p10/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p10/300/200" alt="Ação social 10" loading="lazy">
-      </picture>
+          <label for="motivacao">Motivação *</label>
+          <textarea id="motivacao" name="motivacao" rows="4" required
+                    placeholder="Por que você quer participar deste projeto?"></textarea>
+        </fieldset>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p11/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p11/300/200" alt="Ação social 11" loading="lazy">
-      </picture>
+        <!-- Confirmação -->
+        <fieldset>
+          <legend>Confirmação</legend>
+          <label>
+            <input type="checkbox" name="termos" required />
+            Confirmo que li e concordo com as diretrizes de participação.
+          </label>
+        </fieldset>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p12/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p12/300/200" alt="Ação social 12" loading="lazy">
-      </picture>
+        <button type="submit">Enviar inscrição</button>
+      </form>
+    </section>
+  </main>
 
-      <picture>
-        <source srcset="https://picsum.photos/seed/p13/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p13/300/200" alt="Ação social 13" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p14/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p14/300/200" alt="Ação social 14" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p15/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p15/300/200" alt="Ação social 15" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p16/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p16/300/200" alt="Ação social 16" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p17/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p17/300/200" alt="Ação social 17" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p18/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p18/300/200" alt="Ação social 18" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p19/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p19/300/200" alt="Ação social 19" loading="lazy">
-      </picture>
-
-      <picture>
-        <source srcset="https://picsum.photos/seed/p20/600/400" media="(min-width: 768px)">
-        <img src="https://picsum.photos/seed/p20/300/200" alt="Ação social 20" loading="lazy">
-      </picture>
-    </div>
-  </section>
-</main>
-
-  <footer class="site-footer">
-    <small>&copy; A Noiva — Projeto acadêmico.</small>
+  <!-- ============================== Rodapé ============================== -->
+  <footer>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
   </footer>
 
-  <!-- JS de máscaras -->
-  <script defer src="../js/main.js" defer></script>
+  <!-- ============================== Scripts ============================== -->
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+    /*
+      ============================================================
+      Validação HTML5 com UX melhorada
+      ============================================================
+      - Impede envio se houver campos inválidos.
+      - Foca no primeiro campo inválido.
+      - Mostra alerta de confirmação ao enviar.
+    */
+    const form = document.getElementById('form-projetos');
+
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        const primeiroInvalido = form.querySelector(':invalid');
+        if (primeiroInvalido) {
+          primeiroInvalido.focus();
+        }
+      } else {
+        e.preventDefault();
+        alert('Inscrição enviada com sucesso! Obrigado por participar.');
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>
