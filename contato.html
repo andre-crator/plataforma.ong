@@ -1,86 +1,179 @@
 <!DOCTYPE html>
-<!-- Página: contato.html | Comentários leves para documentação -->
-<html lang=\"pt-BR\" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-  <!-- Metas + CSS -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A Noiva — Contato Institucional</title>
-  <meta name="description" content="Contato institucional com a A Noiva.">
-  <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <!--
+    ============================================================
+    Plataforma ONG — CONTATO
+    Entrega I – Fundamentos e Estruturação
+    Requisitos atendidos:
+      • Estrutura semântica (header/nav/main/footer)
+      • Formulário de contato institucional com ANEXO
+      • Validação nativa HTML5 + checagens em JS (tamanho/quantidade de arquivos)
+      • Comentários explicativos
+    ============================================================
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato • Plataforma ONG</title>
+  <meta name="description" content="Fale com a equipe da ONG e anexe documentos se necessário." />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav aria-label="principal">
-      <a href="../index.html">Início</a>
-      <a href="../sobre.html">Sobre</a>
-      <a href="../projetos.html">Projetos</a>
-      <a href="../contato.html" aria-current="page">Contato</a>
+  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <header>
+    <nav aria-label="Navegação principal do site">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como Doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="contato.html" aria-current="page">Contato</a></li>
+        <li><a href="blog.html">Blog/Notícias</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main id="conteudo" class="container" tabindex="-1">
-    <h1>Contato Institucional</h1>
+  <!-- ========================= Conteúdo Principal ========================= -->
+  <main id="conteudo-principal">
+    <section class="card" aria-labelledby="titulo-contato">
+      <!-- H1 único da página -->
+      <h1 id="titulo-contato">Contato Institucional</h1>
+      <p>Envie sua mensagem. Se necessário, você pode anexar arquivos (ex.: PDF, imagens).</p>
+    </section>
 
-    <!--
-      FORM DE CONTATO
-      - Assunto: select com opções comuns
-      - Mensagem: requerida
-      - Anexo opcional
-      - Campo e-mail com type=email
-    -->
-    <form action="#" method="post" novalidate aria-describedby="ajuda-contato">
-      <p id="ajuda-contato" class="texto-menor">
-        Envie sua mensagem — responderemos o quanto antes.
-      </p>
+    <!-- Formulário de contato com anexos -->
+    <section class="card" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Formulário</h2>
 
-      <fieldset>
-        <legend>Identificação</legend>
+      <!--
+        enctype="multipart/form-data": obrigatório para upload de arquivos
+        novalidate: usamos a validação nativa + UX melhorada via JS
+      -->
+      <form id="form-contato" action="#" method="post" enctype="multipart/form-data" novalidate>
+        <!-- Identificação -->
+        <fieldset>
+          <legend>Contato</legend>
 
-        <label for="nome">Nome *</label>
-        <input id="nome" name="nome" type="text" required minlength="3">
+          <label for="nome">Nome completo *</label>
+          <input id="nome" name="nome" autocomplete="name" required />
 
-        <label for="email">E-mail *</label>
-        <input id="email" name="email" type="email" required placeholder="seuemail@exemplo.com">
+          <label for="email">E-mail *</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
 
-        <label for="tel">Telefone (WhatsApp)</label>
-        <input id="tel" name="tel" inputmode="tel"
-               minlength="10" maxlength="15"
-               pattern="^(\(\d{2}\)\s?\d{4,5}-\d{4}|\d{10,11})$"
-               placeholder="(00) 00000-0000">
-      </fieldset>
+          <label for="tel">Telefone (opcional)</label>
+          <input id="tel" name="tel" type="tel" placeholder="(00) 00000-0000" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" />
+        </fieldset>
 
-      <fieldset>
-        <legend>Mensagem</legend>
+        <!-- Assunto e setor -->
+        <fieldset>
+          <legend>Assunto</legend>
 
-        <label for="assunto">Assunto *</label>
-        <select id="assunto" name="assunto" required>
-          <option value="">Selecione…</option>
-          <option value="parceria">Parceria</option>
-          <option value="imprensa">Imprensa</option>
-          <option value="doacao">Doação</option>
-          <option value="outros">Outros</option>
-        </select>
+          <label for="assunto">Assunto *</label>
+          <input id="assunto" name="assunto" required placeholder="Ex.: Parceria, Dúvida, Solicitação..." />
 
-        <label for="mensagem">Mensagem *</label>
-        <textarea id="mensagem" name="mensagem" rows="6" required
-          placeholder="Escreva sua mensagem com detalhes…"></textarea>
+          <label for="setor">Setor (direcionamento interno)</label>
+          <select id="setor" name="setor">
+            <option value="">Selecione (opcional)</option>
+            <option value="atendimento">Atendimento</option>
+            <option value="voluntariado">Voluntariado</option>
+            <option value="comunicacao">Comunicação</option>
+            <option value="administrativo">Administrativo</option>
+          </select>
+        </fieldset>
 
-        <label for="anexo">Anexo (PDF/Imagem) — opcional</label>
-        <input id="anexo" name="anexo" type="file" accept=".pdf,.png,.jpg,.jpeg">
-      </fieldset>
+        <!-- Mensagem -->
+        <fieldset>
+          <legend>Mensagem</legend>
 
-      <button type="submit">Enviar</button>
-      <button type="reset" class="btn-secundario">Limpar</button>
-    </form>
+          <label for="mensagem">Mensagem *</label>
+          <textarea id="mensagem" name="mensagem" rows="5" minlength="10" required
+            placeholder="Descreva sua solicitação com clareza (mín. 10 caracteres)."></textarea>
+        </fieldset>
+
+        <!-- Anexos -->
+        <fieldset>
+          <legend>Anexos (opcional)</legend>
+          <!--
+            multiple: permite múltiplos arquivos
+            accept: restringe tipos (PDF/JPG/PNG). Ajuste conforme necessidade.
+          -->
+          <label for="anexos">Arquivos (até 5 arquivos, máx. 5MB cada)</label>
+          <input id="anexos" name="anexos" type="file" multiple
+                 accept=".pdf,.jpg,.jpeg,.png,.gif,image/*,application/pdf" />
+          <small id="ajuda-anexo">Formatos aceitos: PDF/JPG/PNG. Tamanho máx: 5MB por arquivo.</small>
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <small>&copy; A Noiva — Projeto acadêmico.</small>
+  <!-- ============================== Rodapé ============================== -->
+  <footer>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
   </footer>
 
-  <!-- JS de máscaras (para telefone) -->
-  <script defer src="../js/main.js" defer></script>
+  <!-- ============================== Scripts ============================== -->
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+    /*
+      ============================================================
+      Validação HTML5 + regras extras para anexos
+      ============================================================
+      - Impede envio se houver campos inválidos.
+      - Foca no primeiro campo inválido.
+      - Regras extras: máximo 5 arquivos, máx. 5MB cada.
+    */
+    const form = document.getElementById('form-contato');
+    const inputAnexos = document.getElementById('anexos');
+    const MAX_FILES = 5;
+    const MAX_MB = 5;
+
+    function validaAnexos() {
+      const files = inputAnexos.files;
+      if (!files || files.length === 0) return true; // sem anexos, ok
+
+      if (files.length > MAX_FILES) {
+        alert('Você pode anexar no maximo ' + MAX_FILES + ' arquivos.');
+        return false;
+      }
+      for (const f of files) {
+        const sizeMB = f.size / (1024 * 1024);
+        if (sizeMB > MAX_MB) {
+          alert('O aquivo "' + f.name + '" execede o tamanho máximo de ' + MAX_MB + 'MB.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    form.addEventListener('submit', (e) => {
+      // Validação nativa
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        const primeiroInvalido = form.querySelector(':invalid');
+        if (primeiroInvalido) primeiroInvalido.focus();
+        return;
+      }
+      // Validação extra de anexos
+      if (!validaAnexos()) {
+        e.preventDefault();
+        inputAnexos.focus();
+        return;
+      }
+
+      // Simulação de envio (como não temos backend nesta entrega)
+      e.preventDefault();
+      alert('Mensagem enviada com sucesso! Retornaremos em breve.');
+      form.reset();
+    });
+  </script>
 </body>
 </html>
