@@ -24,7 +24,47 @@
 
 ## 🗂 Estrutura de Pastas
 
-plataforma-ong/ │ ├── index.html ├── sobre.html ├── projetos.html ├── voluntariado.html ├── doacoes.html ├── transparencia.html ├── contato.html ├── blog.html │ ├── css/ │   ├── reset.css │   ├── style.css │   └── style.min.css │ ├── js/ │   ├── main.js │   ├── gallery.js │   ├── charts.js │   ├── cep.js │   └── valida.js │ ├── assets/ │   ├── imagens/ │   ├── videos/ │   └── audios/ │ ├── data/ │   ├── projetos.json │   └── voluntarios.json │ ├── .github/ │   └── workflows/pages.yml │ └── README.md
+plataforma-ong/
+│
+├── index.html                # Página inicial
+├── sobre.html                # Informações institucionais (vídeo + áudio)
+├── projetos.html             # Formulário de inscrição em projetos
+├── voluntariado.html         # Cadastro e informações de voluntários
+├── doacoes.html              # Página de doações + newsletter
+├── transparencia.html        # Gráficos e indicadores sociais
+├── contato.html              # Formulário institucional com anexos
+├── blog.html                 # Notícias e atualizações
+│
+├── css/
+│   ├── reset.css             # Reset global
+│   ├── style.css             # Estilos principais
+│   └── main.scss             # Fonte SCSS (não compilada no GitHub Pages)
+│
+├── js/
+│   ├── main.js               # Scripts gerais (menus, interações)
+│   ├── gallery.js            # Galeria de imagens (lazy loading)
+│   ├── charts.js             # Gráficos de transparência (canvas)
+│   └── cep.js                # Integração API ViaCEP (endereços automáticos)
+│
+├── assets/
+│   ├── imagens/              # Galeria e imagens do site
+│   ├── videos/               # Vídeo institucional e outros
+│   │   ├── institucional.mp4
+│   │   └── institucional.vtt
+│   ├── audios/               # Depoimentos e trilhas sonoras
+│   │   └── depoimento.mp3
+│   └── fontes/               # Fontes web (opcional)
+│
+├── data/
+│   ├── projetos.json         # Dados dos projetos (simulação)
+│   └── voluntarios.json      # Banco local de voluntários
+│
+├── .github/
+│   └── workflows/
+│       └── pages.yml         # Configuração do GitHub Pages
+│
+├── .nojekyll                 # Desativa processamento Jekyll
+└── README.md                 # Documentação e relatório técnico final
 
 ---
 
