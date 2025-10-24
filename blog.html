@@ -1,47 +1,162 @@
 <!DOCTYPE html>
-<!-- Página: blog.html | Comentários leves para documentação -->
-<html lang=\"pt-BR\" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <!--
+    Plataforma ONG — BLOG/NOTÍCIAS
+    Entrega I – Fundamentos e Estruturação
+    Demostra:
+      • Estrutura semântica (header/nav/main/footer)
+      • Lista de posts (<article>) com data e categoria
+      • Busca por palavra-chave (JS simples)
+      • Paginação mínima (mostrar mais)
+      • Comentários explicativos
+  -->
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>A Noiva — Plataforma oficial</title>
-  <meta name="description" content="A Noiva — ONG de acolhimento, prevenção e apoio a vítimas de abuso e famílias afetadas por tráfico de pessoas.">
-
-  <!-- Open Graph para redes sociais -->
-  <meta property="og:title" content="A Noiva — Plataforma oficial">
-  <meta property="og:description" content="Transparência, projetos, voluntariado e doações.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://andre-crator.github.io/plataforma-ong/">
-  <meta property="og:image" content="assets/images/og-image.jpg">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Blog/Notícias • Plataforma ONG</title>
+  <meta name="description" content="Atualizações, notícias e ações da ONG." />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div id="header"></div>
- <main class="container">
-  <h1>Blog & Notícias</h1>
-  <article>
-    <header>
-      <h2>Relatório de Impacto 2025.3</h2>
-      <p><time datetime="2025-09-30">30 set 2025</time> • Transparência</p>
-    </header>
-    <p>Compartilhamos os principais números e histórias transformadas...</p>
-    <a class="btn-secondary" href="#" aria-label="Ler post Relatório de Impacto 2025.3">Ler mais</a>
-  </article>
+  <header>
+    <nav aria-label="Navegação principal do site">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como Doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="blog.html" aria-current="page">Blog/Notícias</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <article>
-    <header>
-      <h2>Campanha “Proteja a Infância”</h2>
-      <p><time datetime="2025-09-12">12 set 2025</time> • Campanhas</p>
-    </header>
-    <p>Nova campanha de prevenção e acolhimento chega às escolas da região...</p>
-    <a class="btn-secondary" href="#" aria-label="Ler post Campanha Proteja a Infância">Ler mais</a>
-  </article>
-</main>
-  <div id="footer"></div>
-  <script src="/src/assets/js/main.js" defer></script>
+  <main id="conteudo-principal">
+    <section class="card" aria-labelledby="titulo-blog">
+      <h1 id="titulo-blog">Blog/Notícias</h1>
+      <p>Atualizações das ações, eventos e campanhas.</p>
+
+      <!-- Busca simples: filtra pelos títulos e resumos -->
+      <form id="form-busca" role="search" aria-label="Buscar notícias" class="card" style="margin-top:12px;">
+        <label for="q">Buscar</label>
+        <input id="q" name="q" type="search" placeholder="Ex.: acolhimento, campanha, evento…" />
+        <button type="submit">Pesquisar</button>
+        <button type="button" id="limpar">Limpar</button>
+      </form>
+    </section>
+
+    <!-- Lista de posts (mock). Cada post é um <article>. -->
+    <section class="card" aria-labelledby="lista-posts">
+      <h2 id="lista-posts" class="sr-only">Lista de publicações</h2>
+
+      <ul id="posts" class="grid">
+        <!-- Artigo 1 -->
+        <li>
+          <article class="card" data-tags="acolhimento atendimento psicossocial">
+            <header>
+              <h3>Nova sala de acolhimento inaugurada</h3>
+              <time datetime="2025-03-01">01 mar 2025</time> · <span>Categoria: Acolhimento</span>
+            </header>
+            <p>Espaço seguro para escuta qualificada e atendimento psicossocial.</p>
+            <a class="link" href="#" aria-label="Ler mais: Nova sala de acolhimento inaugurada">Ler mais</a>
+          </article>
+        </li>
+
+        <!-- Artigo 2 -->
+        <li>
+          <article class="card" data-tags="campanha doações alimentos higiene">
+            <header>
+              <h3>Campanha de doações — itens de higiene</h3>
+              <time datetime="2025-02-20">20 fev 2025</time> · <span>Categoria: Campanhas</span>
+            </header>
+            <p>Arrecadação para kits de higiene destinados a famílias atendidas.</p>
+            <a class="link" href="#">Ler mais</a>
+          </article>
+        </li>
+
+        <!-- Artigo 3 -->
+        <li>
+          <article class="card" data-tags="evento voluntariado treinamento oficina">
+            <header>
+              <h3>Oficina de formação para voluntários</h3>
+              <time datetime="2025-02-05">05 fev 2025</time> · <span>Categoria: Voluntariado</span>
+            </header>
+            <p>Encontro mensal com conteúdo sobre escuta, ética e fluxos de atendimento.</p>
+            <a class="link" href="#">Ler mais</a>
+          </article>
+        </li>
+
+        <!-- Artigo 4 -->
+        <li class="mais">
+          <article class="card" data-tags="parcerias rede apoio">
+            <header>
+              <h3>Parceria com rede de proteção municipal</h3>
+              <time datetime="2025-01-22">22 jan 2025</time> · <span>Categoria: Parcerias</span>
+            </header>
+            <p>Integração para encaminhamentos mais rápidos e acompanhamento contínuo.</p>
+            <a class="link" href="#">Ler mais</a>
+          </article>
+        </li>
+
+        <!-- Artigo 5 -->
+        <li class="mais">
+          <article class="card" data-tags="transparencia impacto indicadores">
+            <header>
+              <h3>Transparência: indicadores do último trimestre</h3>
+              <time datetime="2024-12-30">30 dez 2024</time> · <span>Categoria: Transparência</span>
+            </header>
+            <p>Resumo dos atendimentos, recursos aplicados e pessoas alcançadas.</p>
+            <a class="link" href="transparencia.html">Ver indicadores</a>
+          </article>
+        </li>
+      </ul>
+
+      <!-- Paginação mínima: revela os itens com classe .mais -->
+      <div class="acoes-rapidas" style="margin-top:12px;">
+        <button id="mostrar-mais" type="button">Mostrar mais</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+  </footer>
+
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+    // Esconde os itens "mais" inicialmente (paginação simples)
+    const mais = document.querySelectorAll('#posts .mais');
+    mais.forEach(li => li.style.display = 'none');
+
+    document.getElementById('mostrar-mais').addEventListener('click', () => {
+      mais.forEach(li => li.style.display = '');
+    });
+
+    // Busca simples por título, resumo e data-tags
+    const formBusca = document.getElementById('form-busca');
+    const inputQ = document.getElementById('q');
+    const btnLimpar = document.getElementById('limpar');
+
+    formBusca.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (inputQ.value || '').toLowerCase().trim();
+      const items = document.querySelectorAll('#posts li');
+
+      items.forEach(li => {
+        const texto = li.innerText.toLowerCase() + ' ' + (li.querySelector('article')?.dataset.tags || '');
+        li.style.display = texto.includes(q) ? '' : 'none';
+      });
+    });
+
+    btnLimpar.addEventListener('click', () => {
+      inputQ.value = '';
+      document.querySelectorAll('#posts li').forEach(li => li.style.display = '');
+    });
+  </script>
 </body>
 </html>
