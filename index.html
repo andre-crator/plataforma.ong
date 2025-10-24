@@ -1,97 +1,259 @@
 <!DOCTYPE html>
-<!-- Página: index.html | Comentários leves para documentação -->
-<html lang=\"pt-BR\" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-  <!-- Página inicial: semântica, performance, SEO -->
+  <!--
+    ============================================================
+    Plataforma ONG – INDEX (Página Inicial)
+    Entrega I – Fundamentos e Estruturação
+    Atende aos itens:
+      • Estrutura semântica (header/nav/main/section/footer)
+      • Hierarquia de títulos (1 único H1)
+      • Galeria responsiva (≥ 20 imagens) com lazy loading
+      • Acessibilidade básica (aria, alt, landmarks)
+      • Comentários explicativos no código
+    Observação:
+      • Formulários complexos, máscaras e gráficos estão nas
+        páginas específicas (voluntariado / projetos / doacoes /
+        transparencia), conforme a especificação.
+    ============================================================
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A Noiva — Início</title>
-  <meta name="description" content="A Noiva: acolhimento, prevenção e restauração para vítimas de abuso e tráfico." />
-  <link rel="stylesheet" href="/src/assets/css/reset.css" />
-  <link rel="stylesheet" href="/src/assets/css/styles.css" />
+
+  <!-- SEO básico -->
+  <title>Início • Plataforma ONG</title>
+  <meta name="description" content="Conheça nossos projetos, participe como voluntário e acompanhe a transparência da ONG." />
+
+  <!-- Open Graph (opcional para compartilhamento social) -->
+  <meta property="og:title" content="Plataforma ONG" />
+  <meta property="og:description" content="Transparência, projetos sociais e voluntariado." />
+  <meta property="og:type" content="website" />
+
+  <!-- CSS do projeto (caminhos conforme sua estrutura /css) -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Dica de performance (opcional): pré-carregar CSS principal -->
+  <!-- <link rel="preload" href="css/style.css" as="style"> -->
 </head>
 <body>
-  <!-- Parciais -->
-  <div id="header"></div>
+  <!-- ==========================================================
+       CABEÇALHO + NAVEGAÇÃO PRINCIPAL
+       - Links apontam para as 8 páginas obrigatórias
+       - Marque a página atual com aria-current="page"
+       ========================================================== -->
+  <header>
+    <nav aria-label="Navegação principal do site">
+      <ul>
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como Doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="blog.html">Blog/Notícias</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main id="conteudo">
-    <!-- HERO com <picture> para imagem responsiva -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <h1 id="hero-title">A Noiva — proteção e esperança</h1>
-        <p>Atuamos no acolhimento, prevenção e restauração de vítimas de abuso sexual e famílias afetadas pelo tráfico de pessoas.</p>
-        <p class="mt-2">
-          <a class="btn" href="/src/doacoes.html">Quero apoiar</a>
-          <a class="btn" href="/src/voluntariado.html" style="margin-left:8px;">Quero ser voluntário</a>
-        </p>
+  <!-- ==========================================================
+       CONTEÚDO PRINCIPAL
+       - 1 único H1 na página (hierarquia correta)
+       ========================================================== -->
+  <main id="conteudo-principal">
+    <!-- HERO: Boas-vindas e atalhos -->
+    <section class="hero card" aria-labelledby="titulo-hero">
+      <!-- H1 único da página -->
+      <h1 id="titulo-hero">Bem-vindo(a) à nossa ONG</h1>
+      <p>
+        Cuidamos de pessoas com acolhimento e dignidade. Conheça nossos
+        <strong>projetos</strong>, participe como <strong>voluntário</strong> e acompanhe nossa
+        <strong>transparência</strong>.
+      </p>
 
-        <!-- imagem responsiva com <picture> e loading="lazy" -->
-        <picture class="mt-3" aria-label="Imagem representativa de acolhimento">
-          <source srcset="https://picsum.photos/seed/hero/1000/400" media="(min-width: 720px)">
-          <img src="https://picsum.photos/seed/hero/700/300" alt="Acolhimento e proteção" loading="lazy">
-        </picture>
+      <!-- Ações rápidas (links principais) -->
+      <div class="acoes-rapidas" role="group" aria-label="Ações principais">
+        <a class="botao" href="projetos.html">Ver Projetos</a>
+        <a class="botao" href="voluntariado.html">Ser Voluntário</a>
+        <a class="botao" href="doacoes.html">Doar Agora</a>
+        <a class="botao" href="transparencia.html">Ver Transparência</a>
       </div>
     </section>
 
-    <!-- Projetos em destaque -->
-    <section class="section" aria-labelledby="proj-title">
-      <div class="container">
-        <h2 id="proj-title">Projetos em andamento</h2>
-        <p class="lead">Transparência, segurança e impacto social.</p>
-        <div class="cards">
-          <article class="card" aria-labelledby="p1">
-            <h3 id="p1">Acolhimento Imediato</h3>
-            <p>Abrigo temporário, suporte psicológico e rede de proteção.</p>
-            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
-          </article>
-          <article class="card" aria-labelledby="p2">
-            <h3 id="p2">Apoio Jurídico</h3>
-            <p>Atuação com órgãos competentes e responsabilização de agressores.</p>
-            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
-          </article>
-          <article class="card" aria-labelledby="p3">
-            <h3 id="p3">Reintegração Familiar</h3>
-            <p>Reconstrução de vínculos e segurança familiar.</p>
-            <a class="btn" href="/src/projetos.html">Ver detalhes</a>
-          </article>
-        </div>
+    <!-- Destaques (exemplo de subtítulos h2/h3 e cards) -->
+    <section class="destaques" aria-labelledby="titulo-destaques">
+      <h2 id="titulo-destaques">Destaques</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Escuta e acolhimento</h3>
+          <p>Ambientes seguros, com profissionais e voluntários preparados para acolher.</p>
+          <a class="link" href="sobre.html">Saiba mais</a>
+        </article>
+
+        <article class="card">
+          <h3>Rede de voluntários</h3>
+          <p>Participe com seu tempo e suas habilidades, em diferentes frentes de atuação.</p>
+          <a class="link" href="voluntariado.html">Como ajudar</a>
+        </article>
+
+        <article class="card">
+          <h3>Transparência ativa</h3>
+          <p>Prestação de contas clara: distribuição de recursos, impacto e evolução.</p>
+          <a class="link" href="transparencia.html">Ver indicadores</a>
+        </article>
       </div>
     </section>
 
-    <!-- Galeria com 20 imagens (lazy) + dialog via gallery.js -->
-    <section class="section" aria-labelledby="gal-title">
-      <div class="container">
-        <h2 id="gal-title">Nossa atuação em imagens</h2>
-        <div class="gallery" aria-label="Galeria de fotos">
-          <!-- 20 placeholders -->
-          <img src="https://picsum.photos/seed/1/600/400" alt="Ação 1" loading="lazy">
-          <img src="https://picsum.photos/seed/2/600/400" alt="Ação 2" loading="lazy">
-          <img src="https://picsum.photos/seed/3/600/400" alt="Ação 3" loading="lazy">
-          <img src="https://picsum.photos/seed/4/600/400" alt="Ação 4" loading="lazy">
-          <img src="https://picsum.photos/seed/5/600/400" alt="Ação 5" loading="lazy">
-          <img src="https://picsum.photos/seed/6/600/400" alt="Ação 6" loading="lazy">
-          <img src="https://picsum.photos/seed/7/600/400" alt="Ação 7" loading="lazy">
-          <img src="https://picsum.photos/seed/8/600/400" alt="Ação 8" loading="lazy">
-          <img src="https://picsum.photos/seed/9/600/400" alt="Ação 9" loading="lazy">
-          <img src="https://picsum.photos/seed/10/600/400" alt="Ação 10" loading="lazy">
-          <img src="https://picsum.photos/seed/11/600/400" alt="Ação 11" loading="lazy">
-          <img src="https://picsum.photos/seed/12/600/400" alt="Ação 12" loading="lazy">
-          <img src="https://picsum.photos/seed/13/600/400" alt="Ação 13" loading="lazy">
-          <img src="https://picsum.photos/seed/14/600/400" alt="Ação 14" loading="lazy">
-          <img src="https://picsum.photos/seed/15/600/400" alt="Ação 15" loading="lazy">
-          <img src="https://picsum.photos/seed/16/600/400" alt="Ação 16" loading="lazy">
-          <img src="https://picsum.photos/seed/17/600/400" alt="Ação 17" loading="lazy">
-          <img src="https://picsum.photos/seed/18/600/400" alt="Ação 18" loading="lazy">
-          <img src="https://picsum.photos/seed/19/600/400" alt="Ação 19" loading="lazy">
-          <img src="https://picsum.photos/seed/20/600/400" alt="Ação 20" loading="lazy">
-        </div>
+    <!-- ========================================================
+         GALERIA RESPONSIVA (≥ 20 imagens)
+         - Imagens reais (Unsplash via URLs dedicadas)
+         - loading="lazy" para performance
+         - width/height para estabilidade de layout
+         - alt descritivo para acessibilidade
+         Substitua por imagens próprias quando desejar.
+         ======================================================== -->
+    <section class="galeria" aria-labelledby="titulo-galeria">
+      <h2 id="titulo-galeria">Galeria de Impacto</h2>
+      <p class="legenda">Registros de ações e acolhimento (imagens ilustrativas profissionais).</p>
+
+      <!-- Substitua somente este bloco <ul class="grid"> ... </ul> quando quiser trocar as imagens -->
+      <ul class="grid">
+  <!-- 01 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Voluntários organizando doações em centro comunitário" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 02 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Profissional de saúde mental conversando com grupo em sala acolhedora" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 03 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1515165562835-c4c9e0ff0f1f?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Equipe de voluntários trabalhando no centro de doações" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 04 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1520975867597-0f8d6f7b1a4e?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Terapeuta ouvindo participantes durante sessão em grupo" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 05 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1585166153364-c4a9b7b0d9e1?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Voluntária embalando caixa de ajuda humanitária" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 06 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1520095972714-909e91b038e1?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Profissional oferece lenço em sessão de acolhimento individual" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 07 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Conversa acolhedora em grupo com conselheira" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 08 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Grupo reunindo doações em centro comunitário" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 09 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1518166345307-c78a325b2299?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Pessoa em conversa com terapeuta em ambiente seguro" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 10 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Retrato de voluntária em centro de doações" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 11 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Participantes de grupo de apoio sentados em círculo" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 12 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Voluntário segurando caixa de doações em mesa de alimentos" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 13 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Detalhe de crachá de voluntária" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 14 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1520975432138-8bdf0d6757ae?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Participante compartilhando relato em grupo de apoio" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 15 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Equipe separando itens em banco de alimentos" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 16 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Voluntários servindo sopa em centro comunitário" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 17 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1543489816-2dbf4b5f5b39?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Triagem de roupas doadas por voluntários" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 18 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Roda de conversa diversa em espaço acolhedor" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 19 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Registro administrativo enquanto equipe embala doações" loading="lazy" width="800" height="600"></picture></li>
+
+  <!-- 20 -->
+  <li><picture><img referrerpolicy="no-referrer"
+    src="https://images.unsplash.com/photo-1551847812-9d98f2f4f36e?auto=format&fit=crop&w=800&h=600&q=80"
+    alt="Atendimento individual com psicóloga em sala iluminada" loading="lazy" width="800" height="600"></picture></li>
+</ul>
+      <!-- FIM da lista de imagens -->
+    </section>
+
+    <!-- Chamada final (CTA) -->
+    <section class="cta card" aria-labelledby="titulo-cta">
+      <h2 id="titulo-cta">Vamos juntos fazer a diferença</h2>
+      <p>Seu apoio transforma vidas. Você pode participar agora mesmo.</p>
+      <div class="acoes-rapidas" role="group" aria-label="Ações de engajamento">
+        <a class="botao" href="doacoes.html">Quero Doar</a>
+        <a class="botao" href="voluntariado.html">Quero Ser Voluntário</a>
       </div>
     </section>
   </main>
 
-  <div id="footer"></div>
+  <!-- ==========================================================
+       RODAPÉ
+       ========================================================== -->
+  <footer>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+  </footer>
 
-  <script src="/src/assets/js/main.js" defer></script>
-  <script src="/src/assets/js/gallery.js" defer></script>
+  <!-- Scripts principais do projeto -->
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    // Atualiza ano no rodapé (detalhe simples de UX)
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+    /*
+      Observações para a Entrega I:
+      - Máscaras (CPF/telefone) + ViaCEP ficam em voluntariado.html e doacoes.html.
+      - Os 3 gráficos em <canvas> (pizza/linha/barras) estão em transparencia.html com Chart.js.
+      - Esta página demonstra semântica, hierarquia e galeria multimídia com lazy loading.
+    */
+  </script>
 </body>
 </html>
