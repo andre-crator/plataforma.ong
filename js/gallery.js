@@ -1,6 +1,4 @@
-/* main.js — Script principal com interações básicas e componentes. Comentários leves ao longo do código. */
-
-// gallery.js is responsible for managing the gallery functionality, including image loading and display features.
+﻿// gallery.js is responsible for managing the gallery functionality, including image loading and display features.
 
 document.addEventListener('DOMContentLoaded', () => {
     const galleryImages = document.querySelectorAll('.gallery img');
@@ -30,3 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = 'none';
     });
 });
+

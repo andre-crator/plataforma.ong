@@ -1,10 +1,10 @@
-/* main.js — Script principal com interações básicas e componentes. Comentários leves ao longo do código. */
+﻿/* main.js â€” Script principal com interaÃ§Ãµes bÃ¡sicas e componentes. ComentÃ¡rios leves ao longo do cÃ³digo. */
 
 /* =========================================================================
-  charts.js — desenha 3 gráficos em canvas SEM libs (simples para Entrega I)
-  - Pizza: distribuição de recursos
-  - Linha: evolução de voluntários
-  - Barras: impacto por região
+  charts.js â€” desenha 3 grÃ¡ficos em canvas SEM libs (simples para Entrega I)
+  - Pizza: distribuiÃ§Ã£o de recursos
+  - Linha: evoluÃ§Ã£o de voluntÃ¡rios
+  - Barras: impacto por regiÃ£o
 =========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,8 +26,8 @@ function drawPie() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  // Dados fictícios
-  const labels = ['Acolhimento','Prevenção','Jurídico','Reintegração','Gestão'];
+  // Dados fictÃ­cios
+  const labels = ['Acolhimento','PrevenÃ§Ã£o','JurÃ­dico','ReintegraÃ§Ã£o','GestÃ£o'];
   const data =   [35,            20,          15,        20,              10 ];
 
   const total = data.reduce((a,b)=>a+b,0);
@@ -63,11 +63,11 @@ function drawLine() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  // Meses e voluntários
+  // Meses e voluntÃ¡rios
   const labels = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
   const values = [ 10,   14,   18,   22,   30,   32,   40,   45,   48,   55,   60,   65 ];
 
-  // Área de plot
+  // Ãrea de plot
   const padding = 40;
   const w = canvas.width - padding * 2;
   const h = canvas.height - padding * 2;
@@ -160,6 +160,7 @@ function drawBar() {
     ctx.fillText(labels[i], x + barWidth/2, canvas.height - padding + 14);
 
     // valor no topo
-    ctx.fillText(v, x + barWidth/2, y - 4);
-  });
+    ctx.fillText(v, x + barWidth/2,Â yÂ -Â 4);
+Â Â });
 }
+
