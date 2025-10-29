@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
-<!-- PÃ¡gina: inscricao-projeto.html | ComentÃ¡rios leves para documentaÃ§Ã£o -->
+<!-- PÃ¡gina: newsletter.html | ComentÃ¡rios leves para documentaÃ§Ã£o -->
 <html lang=\"pt-BR\" lang="pt-BR">
 <head>
   <meta charset=''UTF-8''>
+    <meta name="description" content="PÃ¡gina Newsletter da Plataforma ONG.">
+
   <meta charset="UTF-8" />
-  <title>A Noiva â€¢ InscriÃ§Ã£o em Projeto</title>
+  <title>A Noiva â€¢ Assinar Newsletter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <meta name="description" content="Inscreva-se para atuar em um projeto social da ONG A Noiva." />
 
   <meta charset='UTF-8'>
   <link rel='stylesheet' href='css/reset.css'>
@@ -50,42 +51,20 @@
 </header>
 
 <main class="container container">
-  <h1>InscriÃ§Ã£o em Projeto</h1>
+  <h1>Assinar Newsletter</h1>
   <form novalidate>
     <fieldset>
-      <legend>IdentificaÃ§Ã£o</legend>
+      <legend>InscriÃ§Ã£o</legend>
       <label for="email">E-mail*</label>
-      <input id="email" name="email" type="email" required autocomplete="email" />
+      <input id="email" name="email" type="email" required />
 
-      <label for="telefone">Telefone*</label>
-      <input id="telefone" name="telefone" type="tel" data-mask="phone"
-             pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$" required placeholder="(21) 99999-9999" />
+      <p>PreferÃªncias de conteÃºdo:</p>
+      <label><input type="checkbox" name="pref" value="projetos" /> Projetos e resultados</label>
+      <label><input type="checkbox" name="pref" value="voluntarios" /> Oportunidades para Voluntarios</label>
+      <label><input type="checkbox" name="pref" value="eventos" /> Eventos e campanhas</label>
     </fieldset>
 
-    <fieldset>
-      <legend>Projeto</legend>
-      <label for="projeto">Projeto de Interesse*</label>
-      <select id="projeto" name="projeto" required>
-        <option value="">Selecioneâ€¦</option>
-        <option value="acolhimento">Acolhimento a vÃ­timas</option>
-        <option value="prevencao">PrevenÃ§Ã£o e educaÃ§Ã£o</option>
-        <option value="assistencia-juridica">AssistÃªncia jurÃ­dica</option>
-        <option value="reintegracao">ReintegraÃ§Ã£o familiar</option>
-      </select>
-
-      <label for="experiencia">ExperiÃªncia prÃ©via (se houver)</label>
-      <textarea id="experiencia" name="experiencia" rows="4" placeholder="Conte se jÃ¡ atuou em iniciativas semelhantes"></textarea>
-
-      <label for="disponibilidade">Disponibilidade*</label>
-      <select id="disponibilidade" name="disponibilidade" required>
-        <option value="">Selecioneâ€¦</option>
-        <option>Segunda a Sexta</option>
-        <option>Finais de semana</option>
-        <option>HorÃ¡rios noturnos</option>
-      </select>
-    </fieldset>
-
-    <button type="submit" class="btn-primary">Inscrever</button>
+    <button type="submit" class="btn-primary">Assinar</button>
   </form>
 </main>
 
@@ -93,7 +72,6 @@
 <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
-
 
 
 

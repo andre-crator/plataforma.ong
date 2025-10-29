@@ -1,7 +1,6 @@
 ﻿<!-- PÃ¡gina: header.html | ComentÃ¡rios leves para documentaÃ§Ã£o -->
 <!-- HEADER parcial: navegaÃ§Ã£o principal (carregado via main.js) -->
 <header class="navbar">
-  <meta charset="UTF-8">
   <meta charset=''UTF-8''>
   <meta charset=''UTF-8''>
   <div class="navbar__inner container">
@@ -33,7 +32,6 @@
     </nav>
   </div>
 </header>
-
 
 
 

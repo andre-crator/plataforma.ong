@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <!-- ===== NAVBAR ===== -->
 <header class="navbar">
-  <meta charset="UTF-8">
   <meta charset=''UTF-8''>
   <meta charset=''UTF-8''>
   <div class="navbar__inner container">
@@ -41,7 +40,6 @@
        - Marque a pÃ¡gina atual com aria-current="page"
        ========================================================== -->
   <header>
-  <meta charset="UTF-8">
   <meta charset=''UTF-8''>
   <meta charset=''UTF-8''>
     <nav aria-label="NavegaÃ§Ã£o principal do site">
@@ -258,7 +256,6 @@
   </script>
 </body>
 </html>
-
 
 
 
