@@ -67,3 +67,29 @@
     "color: green; font-weight: bold; font-size: 14px;"
   );
 })();
+
+/* ===== FILTRO DE PROJETOS (cards) ===== */
+(() => {
+  const grid = document.querySelector(".cards-grid");
+  if (!grid) return;
+
+  const cards = Array.from(grid.querySelectorAll(".card"));
+  const buttons = document.querySelectorAll('[data-filter]');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filtro = btn.getAttribute("data-filter");
+
+      // estado visual (ativo)
+      buttons.forEach(b => b.classList.remove("button--success"));
+      btn.classList.add("button--success");
+
+      // aplica filtro
+      cards.forEach(card => {
+        const cat = (card.getAttribute("data-categoria") || "").toLowerCase();
+        const show = (filtro === "todos") || (cat === filtro.toLowerCase());
+        card.style.display = show ? "" : "none";
+      });
+    });
+  });
+})();
