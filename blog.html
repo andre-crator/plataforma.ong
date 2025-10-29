@@ -1,56 +1,56 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <!--
-    Plataforma ONG — BLOG/NOTÍCIAS
-    Entrega I – Fundamentos e Estruturação
+    Plataforma ONG â€” BLOG/NOTÃCIAS
+    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
     Demostra:
-      • Estrutura semântica (header/nav/main/footer)
-      • Lista de posts (<article>) com data e categoria
-      • Busca por palavra-chave (JS simples)
-      • Paginação mínima (mostrar mais)
-      • Comentários explicativos
+      â€¢ Estrutura semÃ¢ntica (header/nav/main/footer)
+      â€¢ Lista de posts (<article>) com data e categoria
+      â€¢ Busca por palavra-chave (JS simples)
+      â€¢ PaginaÃ§Ã£o mÃ­nima (mostrar mais)
+      â€¢ ComentÃ¡rios explicativos
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog/Notícias • Plataforma ONG</title>
-  <meta name="description" content="Atualizações, notícias e ações da ONG." />
+  <title>Blog/NotÃ­cias â€¢ Plataforma ONG</title>
+  <meta name="description" content="AtualizaÃ§Ãµes, notÃ­cias e aÃ§Ãµes da ONG." />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <nav aria-label="Navegação principal do site">
+    <nav aria-label="NavegaÃ§Ã£o principal do site">
       <ul>
-        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html">InÃ­cio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="projetos.html">Projetos</a></li>
         <li><a href="voluntarios.html">Voluntarios</a></li>
         <li><a href="doacoes.html">Como Doar</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="transparencia.html">TransparÃªncia</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog.html" aria-current="page">Blog/Notícias</a></li>
+        <li><a href="blog.html" aria-current="page">Blog/NotÃ­cias</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="conteudo-principal">
     <section class="card" aria-labelledby="titulo-blog">
-      <h1 id="titulo-blog">Blog/Notícias</h1>
-      <p>Atualizações das ações, eventos e campanhas.</p>
+      <h1 id="titulo-blog">Blog/NotÃ­cias</h1>
+      <p>AtualizaÃ§Ãµes das aÃ§Ãµes, eventos e campanhas.</p>
 
-      <!-- Busca simples: filtra pelos títulos e resumos -->
-      <form id="form-busca" role="search" aria-label="Buscar notícias" class="card" style="margin-top:12px;">
+      <!-- Busca simples: filtra pelos tÃ­tulos e resumos -->
+      <form id="form-busca" role="search" aria-label="Buscar notÃ­cias" class="card" style="margin-top:12px;">
         <label for="q">Buscar</label>
-        <input id="q" name="q" type="search" placeholder="Ex.: acolhimento, campanha, evento…" />
+        <input id="q" name="q" type="search" placeholder="Ex.: acolhimento, campanha, eventoâ€¦" />
         <button type="submit">Pesquisar</button>
         <button type="button" id="limpar">Limpar</button>
       </form>
     </section>
 
-    <!-- Lista de posts (mock). Cada post é um <article>. -->
+    <!-- Lista de posts (mock). Cada post Ã© um <article>. -->
     <section class="card" aria-labelledby="lista-posts">
-      <h2 id="lista-posts" class="sr-only">Lista de publicações</h2>
+      <h2 id="lista-posts" class="sr-only">Lista de publicaÃ§Ãµes</h2>
 
       <ul id="posts" class="grid">
         <!-- Artigo 1 -->
@@ -58,21 +58,21 @@
           <article class="card" data-tags="acolhimento atendimento psicossocial">
             <header>
               <h3>Nova sala de acolhimento inaugurada</h3>
-              <time datetime="2025-03-01">01 mar 2025</time> · <span>Categoria: Acolhimento</span>
+              <time datetime="2025-03-01">01 mar 2025</time> Â· <span>Categoria: Acolhimento</span>
             </header>
-            <p>Espaço seguro para escuta qualificada e atendimento psicossocial.</p>
+            <p>EspaÃ§o seguro para escuta qualificada e atendimento psicossocial.</p>
             <a class="link" href="#" aria-label="Ler mais: Nova sala de acolhimento inaugurada">Ler mais</a>
           </article>
         </li>
 
         <!-- Artigo 2 -->
         <li>
-          <article class="card" data-tags="campanha doações alimentos higiene">
+          <article class="card" data-tags="campanha doaÃ§Ãµes alimentos higiene">
             <header>
-              <h3>Campanha de doações — itens de higiene</h3>
-              <time datetime="2025-02-20">20 fev 2025</time> · <span>Categoria: Campanhas</span>
+              <h3>Campanha de doaÃ§Ãµes â€” itens de higiene</h3>
+              <time datetime="2025-02-20">20 fev 2025</time> Â· <span>Categoria: Campanhas</span>
             </header>
-            <p>Arrecadação para kits de higiene destinados a famílias atendidas.</p>
+            <p>ArrecadaÃ§Ã£o para kits de higiene destinados a famÃ­lias atendidas.</p>
             <a class="link" href="#">Ler mais</a>
           </article>
         </li>
@@ -81,10 +81,10 @@
         <li>
           <article class="card" data-tags="evento voluntariado treinamento oficina">
             <header>
-              <h3>Oficina de formação para voluntários</h3>
-              <time datetime="2025-02-05">05 fev 2025</time> · <span>Categoria: Voluntariado</span>
+              <h3>Oficina de formaÃ§Ã£o para voluntÃ¡rios</h3>
+              <time datetime="2025-02-05">05 fev 2025</time> Â· <span>Categoria: Voluntariado</span>
             </header>
-            <p>Encontro mensal com conteúdo sobre escuta, ética e fluxos de atendimento.</p>
+            <p>Encontro mensal com conteÃºdo sobre escuta, Ã©tica e fluxos de atendimento.</p>
             <a class="link" href="#">Ler mais</a>
           </article>
         </li>
@@ -93,10 +93,10 @@
         <li class="mais">
           <article class="card" data-tags="parcerias rede apoio">
             <header>
-              <h3>Parceria com rede de proteção municipal</h3>
-              <time datetime="2025-01-22">22 jan 2025</time> · <span>Categoria: Parcerias</span>
+              <h3>Parceria com rede de proteÃ§Ã£o municipal</h3>
+              <time datetime="2025-01-22">22 jan 2025</time> Â· <span>Categoria: Parcerias</span>
             </header>
-            <p>Integração para encaminhamentos mais rápidos e acompanhamento contínuo.</p>
+            <p>IntegraÃ§Ã£o para encaminhamentos mais rÃ¡pidos e acompanhamento contÃ­nuo.</p>
             <a class="link" href="#">Ler mais</a>
           </article>
         </li>
@@ -105,16 +105,16 @@
         <li class="mais">
           <article class="card" data-tags="transparencia impacto indicadores">
             <header>
-              <h3>Transparência: indicadores do último trimestre</h3>
-              <time datetime="2024-12-30">30 dez 2024</time> · <span>Categoria: Transparência</span>
+              <h3>TransparÃªncia: indicadores do Ãºltimo trimestre</h3>
+              <time datetime="2024-12-30">30 dez 2024</time> Â· <span>Categoria: TransparÃªncia</span>
             </header>
-            <p>Resumo dos atendimentos, recursos aplicados e pessoas alcançadas.</p>
+            <p>Resumo dos atendimentos, recursos aplicados e pessoas alcanÃ§adas.</p>
             <a class="link" href="transparencia.html">Ver indicadores</a>
           </article>
         </li>
       </ul>
 
-      <!-- Paginação mínima: revela os itens com classe .mais -->
+      <!-- PaginaÃ§Ã£o mÃ­nima: revela os itens com classe .mais -->
       <div class="acoes-rapidas" style="margin-top:12px;">
         <button id="mostrar-mais" type="button">Mostrar mais</button>
       </div>
@@ -122,14 +122,14 @@
   </main>
 
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
   </footer>
 
   <script>
-    // Atualiza ano no rodapé
+    // Atualiza ano no rodapÃ©
     document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
-    // Esconde os itens "mais" inicialmente (paginação simples)
+    // Esconde os itens "mais" inicialmente (paginaÃ§Ã£o simples)
     const mais = document.querySelectorAll('#posts .mais');
     mais.forEach(li => li.style.display = 'none');
 
@@ -137,7 +137,7 @@
       mais.forEach(li => li.style.display = '');
     });
 
-    // Busca simples por título, resumo e data-tags
+    // Busca simples por tÃ­tulo, resumo e data-tags
     const formBusca = document.getElementById('form-busca');
     const inputQ = document.getElementById('q');
     const btnLimpar = document.getElementById('limpar');

@@ -1,47 +1,47 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Voluntários | Plataforma ONG Esperança Viva</title>
+  <title>Cadastro de VoluntÃ¡rios | Plataforma ONG EsperanÃ§a Viva</title>
 
   <!-- Reset e estilo principal -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Script de máscaras e integração com ViaCEP -->
+  <!-- Script de mÃ¡scaras e integraÃ§Ã£o com ViaCEP -->
   <script defer src="js/main.js"></script>
 </head>
 
 <body>
   <!-- ==========================
-       CABEÇALHO E NAVEGAÇÃO
+       CABEÃ‡ALHO E NAVEGAÃ‡ÃƒO
        ========================== -->
   <header>
-    <h1>Plataforma ONG Esperança Viva</h1>
-    <nav aria-label="Navegação principal do site">
+    <h1>Plataforma ONG EsperanÃ§a Viva</h1>
+    <nav aria-label="NavegaÃ§Ã£o principal do site">
       <ul>
-        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html">InÃ­cio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="voluntarios.html" aria-current="page">Voluntários</a></li>
+        <li><a href="voluntarios.html" aria-current="page">VoluntÃ¡rios</a></li>
         <li><a href="doacoes.html">Como Doar</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="transparencia.html">TransparÃªncia</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog.html">Blog/Notícias</a></li>
+        <li><a href="blog.html">Blog/NotÃ­cias</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- ==========================
-       CONTEÚDO PRINCIPAL
+       CONTEÃšDO PRINCIPAL
        ========================== -->
   <main>
     <section id="cadastro-voluntario">
-      <h2>Cadastro de Voluntário</h2>
-      <p>Preencha o formulário abaixo para se cadastrar como voluntário(a) e fazer parte das ações da ONG.</p>
+      <h2>Cadastro de VoluntÃ¡rio</h2>
+      <p>Preencha o formulÃ¡rio abaixo para se cadastrar como voluntÃ¡rio(a) e fazer parte das aÃ§Ãµes da ONG.</p>
 
-      <!-- Formulário principal -->
+      <!-- FormulÃ¡rio principal -->
       <form id="formVoluntario" action="#" method="post" novalidate>
 
         <!-- DADOS PESSOAIS -->
@@ -63,7 +63,7 @@
           <label for="cep">CEP:</label>
           <input type="text" id="cep" name="cep" required maxlength="9" placeholder="00000-000">
 
-          <label for="logradouro">Endereço:</label>
+          <label for="logradouro">EndereÃ§o:</label>
           <input type="text" id="logradouro" name="logradouro" placeholder="Rua / Avenida">
 
           <label for="bairro">Bairro:</label>
@@ -78,24 +78,24 @@
 
         <!-- HABILIDADES -->
         <fieldset>
-          <legend>Habilidades e Áreas de Interesse</legend>
-          <p>Selecione as áreas em que você gostaria de atuar:</p>
+          <legend>Habilidades e Ãreas de Interesse</legend>
+          <p>Selecione as Ã¡reas em que vocÃª gostaria de atuar:</p>
 
-          <label><input type="checkbox" name="habilidades" value="atendimento"> Atendimento a vítimas</label><br>
-          <label><input type="checkbox" name="habilidades" value="campanhas"> Campanhas de conscientização</label><br>
-          <label><input type="checkbox" name="habilidades" value="logistica"> Logística e doações</label><br>
+          <label><input type="checkbox" name="habilidades" value="atendimento"> Atendimento a vÃ­timas</label><br>
+          <label><input type="checkbox" name="habilidades" value="campanhas"> Campanhas de conscientizaÃ§Ã£o</label><br>
+          <label><input type="checkbox" name="habilidades" value="logistica"> LogÃ­stica e doaÃ§Ãµes</label><br>
           <label><input type="checkbox" name="habilidades" value="suporte"> Suporte administrativo</label><br>
-          <label><input type="checkbox" name="habilidades" value="tecnologia"> Apoio tecnológico</label>
+          <label><input type="checkbox" name="habilidades" value="tecnologia"> Apoio tecnolÃ³gico</label>
         </fieldset>
 
         <!-- DISPONIBILIDADE -->
         <fieldset>
           <legend>Disponibilidade</legend>
 
-          <label for="disponibilidade">Escolha seu período de disponibilidade:</label>
+          <label for="disponibilidade">Escolha seu perÃ­odo de disponibilidade:</label>
           <select id="disponibilidade" name="disponibilidade" required>
             <option value="">Selecione...</option>
-            <option value="manha">Manhã</option>
+            <option value="manha">ManhÃ£</option>
             <option value="tarde">Tarde</option>
             <option value="noite">Noite</option>
             <option value="fim-de-semana">Finais de Semana</option>
@@ -105,27 +105,27 @@
         <!-- MENSAGEM OPCIONAL -->
         <fieldset>
           <legend>Mensagem (opcional)</legend>
-          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco sobre você e sua motivação..."></textarea>
+          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco sobre vocÃª e sua motivaÃ§Ã£o..."></textarea>
         </fieldset>
 
-        <!-- BOTÃO DE ENVIO -->
+        <!-- BOTÃƒO DE ENVIO -->
         <button type="submit">Enviar Cadastro</button>
       </form>
     </section>
   </main>
 
   <!-- ==========================
-       RODAPÉ
+       RODAPÃ‰
        ========================== -->
   <footer>
-    <p>&copy; 2025 ONG Esperança Viva — Todos os direitos reservados.</p>
+    <p>&copy; 2025 ONG EsperanÃ§a Viva â€” Todos os direitos reservados.</p>
   </footer>
 
   <!-- ==========================
        SCRIPT DE CONSULTA DE CEP
        ========================== -->
   <script>
-    // Função para buscar o endereço no ViaCEP
+    // FunÃ§Ã£o para buscar o endereÃ§o no ViaCEP
     document.getElementById('cep').addEventListener('blur', async () => {
       const cep = document.getElementById('cep').value.replace(/\D/g, '');
       if (cep.length === 8) {

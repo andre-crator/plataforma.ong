@@ -1,0 +1,9 @@
+/* ======================================================
+   🧩 MAIN.CSS
+   Importa o design system e os módulos de layout/componentes,
+   mantendo o seu styles.css por último (override local).
+====================================================== */
+@import url('./variables.css');
+@import url('./layout.css');
+@import url('./components.css');
+@import url('./styles.css'); /* seu arquivo antigo continua valendo */

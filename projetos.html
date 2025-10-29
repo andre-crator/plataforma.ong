@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <!--
     ============================================================
-    Plataforma ONG — PROJETOS
-    Entrega I – Fundamentos e Estruturação
+    Plataforma ONG â€” PROJETOS
+    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
     Requisitos atendidos:
-      • Estrutura semântica (header/nav/main/footer)
-      • Formulário de inscrição em projetos
-      • Campos: dados pessoais, projeto, experiência, motivação
-      • Validação HTML5 + comentários explicativos
+      â€¢ Estrutura semÃ¢ntica (header/nav/main/footer)
+      â€¢ FormulÃ¡rio de inscriÃ§Ã£o em projetos
+      â€¢ Campos: dados pessoais, projeto, experiÃªncia, motivaÃ§Ã£o
+      â€¢ ValidaÃ§Ã£o HTML5 + comentÃ¡rios explicativos
     ============================================================
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projetos • Plataforma ONG</title>
+  <title>Projetos â€¢ Plataforma ONG</title>
   <meta name="description" content="Inscreva-se para participar dos projetos sociais da ONG." />
 
   <!-- CSS do projeto -->
@@ -22,32 +22,32 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
   <header>
-    <nav aria-label="Navegação principal do site">
+    <nav aria-label="NavegaÃ§Ã£o principal do site">
       <ul>
-        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html">InÃ­cio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="projetos.html" aria-current="page">Projetos</a></li>
         <li><a href="voluntarios.html">Voluntarios</a></li>
         <li><a href="doacoes.html">Como Doar</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="transparencia.html">TransparÃªncia</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog.html">Blog/Notícias</a></li>
+        <li><a href="blog.html">Blog/NotÃ­cias</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ========================= Conteúdo Principal ========================= -->
+  <!-- ========================= ConteÃºdo Principal ========================= -->
   <main id="conteudo-principal">
     <section class="card" aria-labelledby="titulo-proj">
       <h1 id="titulo-proj">Projetos Sociais</h1>
-      <p>Escolha um dos projetos ativos e envie sua inscrição para participar.</p>
+      <p>Escolha um dos projetos ativos e envie sua inscriÃ§Ã£o para participar.</p>
     </section>
 
-    <!-- ===================== Formulário de inscrição ===================== -->
+    <!-- ===================== FormulÃ¡rio de inscriÃ§Ã£o ===================== -->
     <section class="card" aria-labelledby="titulo-form">
-      <h2 id="titulo-form">Formulário de Inscrição</h2>
+      <h2 id="titulo-form">FormulÃ¡rio de InscriÃ§Ã£o</h2>
 
       <form id="form-projetos" action="#" method="post" novalidate>
         <!-- Dados pessoais -->
@@ -72,57 +72,57 @@
           <label for="projeto">Selecione o projeto *</label>
           <select id="projeto" name="projeto" required>
             <option value="">Selecione...</option>
-            <option>Projeto Esperança</option>
+            <option>Projeto EsperanÃ§a</option>
             <option>Casa de Acolhimento</option>
             <option>Rede de Apoio</option>
-            <option>Oficinas de Capacitação</option>
+            <option>Oficinas de CapacitaÃ§Ã£o</option>
           </select>
         </fieldset>
 
-        <!-- Experiência e motivação -->
+        <!-- ExperiÃªncia e motivaÃ§Ã£o -->
         <fieldset>
-          <legend>Experiência e motivação</legend>
+          <legend>ExperiÃªncia e motivaÃ§Ã£o</legend>
 
-          <label for="experiencia">Experiência prévia *</label>
+          <label for="experiencia">ExperiÃªncia prÃ©via *</label>
           <textarea id="experiencia" name="experiencia" rows="4" required
-                    placeholder="Descreva brevemente sua experiência anterior com projetos sociais."></textarea>
+                    placeholder="Descreva brevemente sua experiÃªncia anterior com projetos sociais."></textarea>
 
-          <label for="motivacao">Motivação *</label>
+          <label for="motivacao">MotivaÃ§Ã£o *</label>
           <textarea id="motivacao" name="motivacao" rows="4" required
-                    placeholder="Por que você quer participar deste projeto?"></textarea>
+                    placeholder="Por que vocÃª quer participar deste projeto?"></textarea>
         </fieldset>
 
-        <!-- Confirmação -->
+        <!-- ConfirmaÃ§Ã£o -->
         <fieldset>
-          <legend>Confirmação</legend>
+          <legend>ConfirmaÃ§Ã£o</legend>
           <label>
             <input type="checkbox" name="termos" required />
-            Confirmo que li e concordo com as diretrizes de participação.
+            Confirmo que li e concordo com as diretrizes de participaÃ§Ã£o.
           </label>
         </fieldset>
 
-        <button type="submit">Enviar inscrição</button>
+        <button type="submit">Enviar inscriÃ§Ã£o</button>
       </form>
     </section>
   </main>
 
-  <!-- ============================== Rodapé ============================== -->
+  <!-- ============================== RodapÃ© ============================== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
   </footer>
 
   <!-- ============================== Scripts ============================== -->
   <script>
-    // Atualiza ano no rodapé
+    // Atualiza ano no rodapÃ©
     document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
     /*
       ============================================================
-      Validação HTML5 com UX melhorada
+      ValidaÃ§Ã£o HTML5 com UX melhorada
       ============================================================
-      - Impede envio se houver campos inválidos.
-      - Foca no primeiro campo inválido.
-      - Mostra alerta de confirmação ao enviar.
+      - Impede envio se houver campos invÃ¡lidos.
+      - Foca no primeiro campo invÃ¡lido.
+      - Mostra alerta de confirmaÃ§Ã£o ao enviar.
     */
     const form = document.getElementById('form-projetos');
 
@@ -135,7 +135,7 @@
         }
       } else {
         e.preventDefault();
-        alert('Inscrição enviada com sucesso! Obrigado por participar.');
+        alert('InscriÃ§Ã£o enviada com sucesso! Obrigado por participar.');
         form.reset();
       }
     });

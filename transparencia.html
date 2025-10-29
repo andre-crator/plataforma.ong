@@ -1,92 +1,92 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <!--
     ============================================================
-    Plataforma ONG — TRANSPARÊNCIA
-    Entrega I – Fundamentos e Estruturação
-    Requisitos atendidos nesta página:
-      • Estrutura semântica (header/nav/main/section/footer)
-      • Gráficos em <canvas>: pizza, linha e barras (Chart.js)
-      • Acessibilidade: títulos claros, aria-label nos canvas
-      • Comentários explicativos no código
-    Observações:
-      • Os dados abaixo são exemplos realistas. Você pode
-        carregá-los de /data/*.json depois (futuras entregas).
+    Plataforma ONG â€” TRANSPARÃŠNCIA
+    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
+    Requisitos atendidos nesta pÃ¡gina:
+      â€¢ Estrutura semÃ¢ntica (header/nav/main/section/footer)
+      â€¢ GrÃ¡ficos em <canvas>: pizza, linha e barras (Chart.js)
+      â€¢ Acessibilidade: tÃ­tulos claros, aria-label nos canvas
+      â€¢ ComentÃ¡rios explicativos no cÃ³digo
+    ObservaÃ§Ãµes:
+      â€¢ Os dados abaixo sÃ£o exemplos realistas. VocÃª pode
+        carregÃ¡-los de /data/*.json depois (futuras entregas).
     ============================================================
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Transparência • Plataforma ONG</title>
-  <meta name="description" content="Prestação de contas: distribuição de recursos, evolução de voluntários e impacto por região." />
+  <title>TransparÃªncia â€¢ Plataforma ONG</title>
+  <meta name="description" content="PrestaÃ§Ã£o de contas: distribuiÃ§Ã£o de recursos, evoluÃ§Ã£o de voluntÃ¡rios e impacto por regiÃ£o." />
 
   <!-- CSS do projeto -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
   <header>
-    <nav aria-label="Navegação principal do site">
+    <nav aria-label="NavegaÃ§Ã£o principal do site">
   <ul>
-    <li><a href="index.html">Início</a></li>
+    <li><a href="index.html">InÃ­cio</a></li>
     <li><a href="sobre.html">Sobre</a></li>
     <li><a href="projetos.html">Projetos</a></li>
-    <li><a href="voluntarios.html">Voluntários</a></li>
+    <li><a href="voluntarios.html">VoluntÃ¡rios</a></li>
     <li><a href="doacoes.html">Como Doar</a></li>
-    <li><a href="transparencia.html" aria-current="page">Transparência</a></li>
+    <li><a href="transparencia.html" aria-current="page">TransparÃªncia</a></li>
     <li><a href="contato.html">Contato</a></li>
-    <li><a href="blog.html">Blog/Notícias</a></li>
-  </ul>
+    <li><a href="blog.html">Blog/NotÃ­cias</a></li>
+Â Â </ul>
 </nav>
   </header>
 
-  <!-- ========================= Conteúdo Principal ========================= -->
+  <!-- ========================= ConteÃºdo Principal ========================= -->
   <main id="conteudo-principal">
     <section class="card" aria-labelledby="titulo-transp">
-      <h1 id="titulo-transp">Transparência</h1>
+      <h1 id="titulo-transp">TransparÃªncia</h1>
       <p>
-        Abaixo apresentamos a distribuição de recursos por projeto, a evolução de
-        voluntários ao longo do tempo e o impacto social por região (valores fictícios
-        para demonstração).
+        Abaixo apresentamos a distribuiÃ§Ã£o de recursos por projeto, a evoluÃ§Ã£o de
+        voluntÃ¡rios ao longo do tempo e o impacto social por regiÃ£o (valores fictÃ­cios
+        para demonstraÃ§Ã£o).
       </p>
     </section>
 
-    <!-- Distribuição de recursos por projeto (pizza) -->
+    <!-- DistribuiÃ§Ã£o de recursos por projeto (pizza) -->
     <section class="card" aria-labelledby="titulo-pizza">
-      <h2 id="titulo-pizza">Distribuição de recursos por projeto</h2>
+      <h2 id="titulo-pizza">DistribuiÃ§Ã£o de recursos por projeto</h2>
       <!--
-        aria-label dá contexto do que o gráfico mostra
-        role="img" ajuda leitores de tela quando o gráfico é meramente visual
+        aria-label dÃ¡ contexto do que o grÃ¡fico mostra
+        role="img" ajuda leitores de tela quando o grÃ¡fico Ã© meramente visual
       -->
       <canvas id="graficoRecursos" width="480" height="320"
-              aria-label="Gráfico de pizza da distribuição de recursos por projeto"
+              aria-label="GrÃ¡fico de pizza da distribuiÃ§Ã£o de recursos por projeto"
               role="img"></canvas>
-      <small>Legenda: Projetos A, B e C — porcentagem do orçamento destinado no trimestre.</small>
+      <small>Legenda: Projetos A, B e C â€” porcentagem do orÃ§amento destinado no trimestre.</small>
     </section>
 
-    <!-- Evolução de voluntários (linha) -->
+    <!-- EvoluÃ§Ã£o de voluntÃ¡rios (linha) -->
     <section class="card" aria-labelledby="titulo-linha">
-      <h2 id="titulo-linha">Evolução de voluntários ao longo do tempo</h2>
+      <h2 id="titulo-linha">EvoluÃ§Ã£o de voluntÃ¡rios ao longo do tempo</h2>
       <canvas id="graficoVoluntarios" width="480" height="320"
-              aria-label="Gráfico de linha da evolução de voluntários por mês"
+              aria-label="GrÃ¡fico de linha da evoluÃ§Ã£o de voluntÃ¡rios por mÃªs"
               role="img"></canvas>
-      <small>Meses do ano corrente. Tendência geral de crescimento do engajamento.</small>
+      <small>Meses do ano corrente. TendÃªncia geral de crescimento do engajamento.</small>
     </section>
 
-    <!-- Impacto por região (barras) -->
+    <!-- Impacto por regiÃ£o (barras) -->
     <section class="card" aria-labelledby="titulo-barras">
-      <h2 id="titulo-barras">Impacto social por região</h2>
+      <h2 id="titulo-barras">Impacto social por regiÃ£o</h2>
       <canvas id="graficoImpacto" width="480" height="320"
-              aria-label="Gráfico de barras de pessoas alcançadas por região"
+              aria-label="GrÃ¡fico de barras de pessoas alcanÃ§adas por regiÃ£o"
               role="img"></canvas>
-      <small>Quantidade de pessoas alcançadas por macro-região.</small>
+      <small>Quantidade de pessoas alcanÃ§adas por macro-regiÃ£o.</small>
     </section>
   </main>
 
-  <!-- ============================== Rodapé ============================== -->
+  <!-- ============================== RodapÃ© ============================== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
   </footer>
 
   <!-- ============================== Scripts ============================== -->
@@ -94,12 +94,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
-    // Atualiza ano no rodapé
+    // Atualiza ano no rodapÃ©
     document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
     /*
       ============================================================
-      Dados de exemplo (poderão vir de /data/*.json futuramente)
+      Dados de exemplo (poderÃ£o vir de /data/*.json futuramente)
       ============================================================
     */
     const dadosRecursos = {
@@ -119,13 +119,13 @@
 
     /*
       ============================================================
-      Criação dos 3 gráficos com Chart.js
+      CriaÃ§Ã£o dos 3 grÃ¡ficos com Chart.js
       ============================================================
-      • Responsivo por padrão; canvas tem width/height para layout estável.
-      • Utilizamos cores automáticas do Chart.js (sem estilização pesada).
+      â€¢ Responsivo por padrÃ£o; canvas tem width/height para layout estÃ¡vel.
+      â€¢ Utilizamos cores automÃ¡ticas do Chart.js (sem estilizaÃ§Ã£o pesada).
     */
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) Pizza — Distribuição de recursos por projeto
+      // 1) Pizza â€” DistribuiÃ§Ã£o de recursos por projeto
       const ctxPie = document.getElementById('graficoRecursos');
       if (ctxPie) {
         new Chart(ctxPie, {
@@ -146,7 +146,7 @@
         });
       }
 
-      // 2) Linha — Evolução de voluntários
+      // 2) Linha â€” EvoluÃ§Ã£o de voluntÃ¡rios
       const ctxLine = document.getElementById('graficoVoluntarios');
       if (ctxLine) {
         new Chart(ctxLine, {
@@ -154,7 +154,7 @@
           data: {
             labels: dadosVoluntarios.labels,
             datasets: [{
-              label: 'Voluntários',
+              label: 'VoluntÃ¡rios',
               data: dadosVoluntarios.valores,
               tension: 0.3,       // curva suave
               pointRadius: 3      // destaca pontos
@@ -170,7 +170,7 @@
         });
       }
 
-      // 3) Barras — Impacto social por região
+      // 3) Barras â€” Impacto social por regiÃ£o
       const ctxBar = document.getElementById('graficoImpacto');
       if (ctxBar) {
         new Chart(ctxBar, {
@@ -178,7 +178,7 @@
           data: {
             labels: dadosImpacto.labels,
             datasets: [{
-              label: 'Pessoas alcançadas',
+              label: 'Pessoas alcanÃ§adas',
               data: dadosImpacto.valores
             }]
           },
@@ -186,7 +186,7 @@
             responsive: true,
             scales: {
               y: { beginAtZero: true, title: { display: true, text: 'Pessoas' } },
-              x: { title: { display: true, text: 'Regiões' } }
+              x: { title: { display: true, text: 'RegiÃµes' } }
             }
           }
         });

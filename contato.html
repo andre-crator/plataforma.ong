@@ -1,61 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <!--
     ============================================================
-    Plataforma ONG — CONTATO
-    Entrega I – Fundamentos e Estruturação
+    Plataforma ONG â€” CONTATO
+    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
     Requisitos atendidos:
-      • Estrutura semântica (header/nav/main/footer)
-      • Formulário de contato institucional com ANEXO
-      • Validação nativa HTML5 + checagens em JS (tamanho/quantidade de arquivos)
-      • Comentários explicativos
+      â€¢ Estrutura semÃ¢ntica (header/nav/main/footer)
+      â€¢ FormulÃ¡rio de contato institucional com ANEXO
+      â€¢ ValidaÃ§Ã£o nativa HTML5 + checagens em JS (tamanho/quantidade de arquivos)
+      â€¢ ComentÃ¡rios explicativos
     ============================================================
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contato • Plataforma ONG</title>
-  <meta name="description" content="Fale com a equipe da ONG e anexe documentos se necessário." />
+  <title>Contato â€¢ Plataforma ONG</title>
+  <meta name="description" content="Fale com a equipe da ONG e anexe documentos se necessÃ¡rio." />
 
   <!-- CSS do projeto -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ===================== Cabeçalho / Navegação ===================== -->
+  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
   <header>
-    <nav aria-label="Navegação principal do site">
+    <nav aria-label="NavegaÃ§Ã£o principal do site">
       <ul>
-        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html">InÃ­cio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="projetos.html">Projetos</a></li>
         <li><a href="voluntarios.html">Voluntarios</a></li>
         <li><a href="doacoes.html">Como Doar</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="transparencia.html">TransparÃªncia</a></li>
         <li><a href="contato.html" aria-current="page">Contato</a></li>
-        <li><a href="blog.html">Blog/Notícias</a></li>
+        <li><a href="blog.html">Blog/NotÃ­cias</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ========================= Conteúdo Principal ========================= -->
+  <!-- ========================= ConteÃºdo Principal ========================= -->
   <main id="conteudo-principal">
     <section class="card" aria-labelledby="titulo-contato">
-      <!-- H1 único da página -->
+      <!-- H1 Ãºnico da pÃ¡gina -->
       <h1 id="titulo-contato">Contato Institucional</h1>
-      <p>Envie sua mensagem. Se necessário, você pode anexar arquivos (ex.: PDF, imagens).</p>
+      <p>Envie sua mensagem. Se necessÃ¡rio, vocÃª pode anexar arquivos (ex.: PDF, imagens).</p>
     </section>
 
-    <!-- Formulário de contato com anexos -->
+    <!-- FormulÃ¡rio de contato com anexos -->
     <section class="card" aria-labelledby="titulo-form">
-      <h2 id="titulo-form">Formulário</h2>
+      <h2 id="titulo-form">FormulÃ¡rio</h2>
 
       <!--
-        enctype="multipart/form-data": obrigatório para upload de arquivos
-        novalidate: usamos a validação nativa + UX melhorada via JS
+        enctype="multipart/form-data": obrigatÃ³rio para upload de arquivos
+        novalidate: usamos a validaÃ§Ã£o nativa + UX melhorada via JS
       -->
       <form id="form-contato" action="#" method="post" enctype="multipart/form-data" novalidate>
-        <!-- Identificação -->
+        <!-- IdentificaÃ§Ã£o -->
         <fieldset>
           <legend>Contato</legend>
 
@@ -74,14 +74,14 @@
           <legend>Assunto</legend>
 
           <label for="assunto">Assunto *</label>
-          <input id="assunto" name="assunto" required placeholder="Ex.: Parceria, Dúvida, Solicitação..." />
+          <input id="assunto" name="assunto" required placeholder="Ex.: Parceria, DÃºvida, SolicitaÃ§Ã£o..." />
 
           <label for="setor">Setor (direcionamento interno)</label>
           <select id="setor" name="setor">
             <option value="">Selecione (opcional)</option>
             <option value="atendimento">Atendimento</option>
             <option value="voluntarios">voluntarios</option>
-            <option value="comunicacao">Comunicação</option>
+            <option value="comunicacao">ComunicaÃ§Ã£o</option>
             <option value="administrativo">Administrativo</option>
           </select>
         </fieldset>
@@ -92,20 +92,20 @@
 
           <label for="mensagem">Mensagem *</label>
           <textarea id="mensagem" name="mensagem" rows="5" minlength="10" required
-            placeholder="Descreva sua solicitação com clareza (mín. 10 caracteres)."></textarea>
+            placeholder="Descreva sua solicitaÃ§Ã£o com clareza (mÃ­n. 10 caracteres)."></textarea>
         </fieldset>
 
         <!-- Anexos -->
         <fieldset>
           <legend>Anexos (opcional)</legend>
           <!--
-            multiple: permite múltiplos arquivos
+            multiple: permite mÃºltiplos arquivos
             accept: restringe tipos (PDF/JPG/PNG). Ajuste conforme necessidade.
           -->
-          <label for="anexos">Arquivos (até 5 arquivos, máx. 5MB cada)</label>
+          <label for="anexos">Arquivos (atÃ© 5 arquivos, mÃ¡x. 5MB cada)</label>
           <input id="anexos" name="anexos" type="file" multiple
                  accept=".pdf,.jpg,.jpeg,.png,.gif,image/*,application/pdf" />
-          <small id="ajuda-anexo">Formatos aceitos: PDF/JPG/PNG. Tamanho máx: 5MB por arquivo.</small>
+          <small id="ajuda-anexo">Formatos aceitos: PDF/JPG/PNG. Tamanho mÃ¡x: 5MB por arquivo.</small>
         </fieldset>
 
         <button type="submit">Enviar</button>
@@ -113,23 +113,23 @@
     </section>
   </main>
 
-  <!-- ============================== Rodapé ============================== -->
+  <!-- ============================== RodapÃ© ============================== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo • Todos os direitos reservados</small>
+    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
   </footer>
 
   <!-- ============================== Scripts ============================== -->
   <script>
-    // Atualiza ano no rodapé
+    // Atualiza ano no rodapÃ©
     document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
     /*
       ============================================================
-      Validação HTML5 + regras extras para anexos
+      ValidaÃ§Ã£o HTML5 + regras extras para anexos
       ============================================================
-      - Impede envio se houver campos inválidos.
-      - Foca no primeiro campo inválido.
-      - Regras extras: máximo 5 arquivos, máx. 5MB cada.
+      - Impede envio se houver campos invÃ¡lidos.
+      - Foca no primeiro campo invÃ¡lido.
+      - Regras extras: mÃ¡ximo 5 arquivos, mÃ¡x. 5MB cada.
     */
     const form = document.getElementById('form-contato');
     const inputAnexos = document.getElementById('anexos');
@@ -141,13 +141,13 @@
       if (!files || files.length === 0) return true; // sem anexos, ok
 
       if (files.length > MAX_FILES) {
-        alert('Você pode anexar no maximo ' + MAX_FILES + ' arquivos.');
+        alert('VocÃª pode anexar no maximo ' + MAX_FILES + ' arquivos.');
         return false;
       }
       for (const f of files) {
         const sizeMB = f.size / (1024 * 1024);
         if (sizeMB > MAX_MB) {
-          alert('O aquivo "' + f.name + '" execede o tamanho máximo de ' + MAX_MB + 'MB.');
+          alert('O aquivo "' + f.name + '" execede o tamanho mÃ¡ximo de ' + MAX_MB + 'MB.');
           return false;
         }
       }
@@ -155,21 +155,21 @@
     }
 
     form.addEventListener('submit', (e) => {
-      // Validação nativa
+      // ValidaÃ§Ã£o nativa
       if (!form.checkValidity()) {
         e.preventDefault();
         const primeiroInvalido = form.querySelector(':invalid');
         if (primeiroInvalido) primeiroInvalido.focus();
         return;
       }
-      // Validação extra de anexos
+      // ValidaÃ§Ã£o extra de anexos
       if (!validaAnexos()) {
         e.preventDefault();
         inputAnexos.focus();
         return;
       }
 
-      // Simulação de envio (como não temos backend nesta entrega)
+      // SimulaÃ§Ã£o de envio (como nÃ£o temos backend nesta entrega)
       e.preventDefault();
       alert('Mensagem enviada com sucesso! Retornaremos em breve.');
       form.reset();
