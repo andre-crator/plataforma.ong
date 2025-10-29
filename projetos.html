@@ -56,70 +56,20 @@
 
   <!-- ========================= ConteÃºdo Principal ========================= -->
   <main id="conteudo-principal">
-    <section class="card" aria-labelledby="titulo-proj">
-      <h1 id="titulo-proj">Projetos Sociais</h1>
-      <p>Escolha um dos projetos ativos e envie sua inscriÃ§Ã£o para participar.</p>
-    </section>
+    # Adiciona/mescla class="container" em todas as tags <main> dos .html
+Get-ChildItem -Recurse -Include *.html | ForEach-Object {
+  $c = Get-Content $_.FullName -Raw
 
-    <!-- ===================== FormulÃ¡rio de inscriÃ§Ã£o ===================== -->
-    <section class="card" aria-labelledby="titulo-form">
-      <h2 id="titulo-form">FormulÃ¡rio de InscriÃ§Ã£o</h2>
+  # Caso 1: <main> sem atributo class -> vira <main class="container">
+  $c = [regex]::Replace($c, '(?i)<main(\s*)(?=>)', '<main class="container"$1')
 
-      <form id="form-projetos" action="#" method="post" novalidate>
-        <!-- Dados pessoais -->
-        <fieldset>
-          <legend>Dados pessoais</legend>
+  # Caso 2: <main class="..."> e ainda não contém "container" -> insere container no início
+  $c = [regex]::Replace($c, '(?i)<main([^>]?)class="(?![^"]\bcontainer\b)([^"]*)"', '<main$1class="container $2"')
 
-          <label for="nome">Nome completo *</label>
-          <input id="nome" name="nome" autocomplete="name" required />
-
-          <label for="email">E-mail *</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-
-          <label for="tel">Telefone *</label>
-          <input id="tel" name="tel" type="tel" placeholder="(00) 00000-0000"
-                 pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" required />
-        </fieldset>
-
-        <!-- Projeto de interesse -->
-        <fieldset>
-          <legend>Projeto de interesse</legend>
-
-          <label for="projeto">Selecione o projeto *</label>
-          <select id="projeto" name="projeto" required>
-            <option value="">Selecione...</option>
-            <option>Projeto EsperanÃ§a</option>
-            <option>Casa de Acolhimento</option>
-            <option>Rede de Apoio</option>
-            <option>Oficinas de CapacitaÃ§Ã£o</option>
-          </select>
-        </fieldset>
-
-        <!-- ExperiÃªncia e motivaÃ§Ã£o -->
-        <fieldset>
-          <legend>ExperiÃªncia e motivaÃ§Ã£o</legend>
-
-          <label for="experiencia">ExperiÃªncia prÃ©via *</label>
-          <textarea id="experiencia" name="experiencia" rows="4" required
-                    placeholder="Descreva brevemente sua experiÃªncia anterior com projetos sociais."></textarea>
-
-          <label for="motivacao">MotivaÃ§Ã£o *</label>
-          <textarea id="motivacao" name="motivacao" rows="4" required
-                    placeholder="Por que vocÃª quer participar deste projeto?"></textarea>
-        </fieldset>
-
-        <!-- ConfirmaÃ§Ã£o -->
-        <fieldset>
-          <legend>ConfirmaÃ§Ã£o</legend>
-          <label>
-            <input type="checkbox" name="termos" required />
-            Confirmo que li e concordo com as diretrizes de participaÃ§Ã£o.
-          </label>
-        </fieldset>
-
-        <button type="submit">Enviar inscriÃ§Ã£o</button>
-      </form>
-    </section>
+  Set-Content $_.FullName $c -Encoding UTF8
+  Write-Host "✅ Atualizado: $($_.Name)"
+  
+}
   </main>
 
   <!-- ============================== RodapÃ© ============================== -->
