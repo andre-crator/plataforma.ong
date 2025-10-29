@@ -1,0 +1,39 @@
+/* ======================================================
+   🎨 DESIGN SYSTEM – VARIABLES.CSS
+   Autor: André Borges Pereira Machado
+   Projeto: Plataforma ONG (Entrega II – Estilização e Leiautes)
+   Descrição: Declaração de variáveis globais para cores, tipografia,
+   espaçamentos e grid. Este arquivo define a identidade visual do site.
+====================================================== */
+
+:root {
+  /* 🎨 Paleta de Cores */
+  --color-primary: #0055a5;
+  --color-secondary: #00a5a8;
+  --color-accent: #f9a825;
+  --color-success: #2ecc71;
+  --color-error: #e74c3c;
+  --color-warning: #f39c12;
+  --color-neutral-light: #f4f4f4;
+  --color-neutral-dark: #2c3e50;
+
+  /* 🧩 Tipografia */
+  --font-base: 'Poppins', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* 📏 Espaçamentos (escala modular 8px) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  /* 🔳 Grid */
+  --grid-columns: 12;
+  --grid-gap: 16px;
+}
