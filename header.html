@@ -1,25 +1,33 @@
 ﻿<!-- PÃ¡gina: header.html | ComentÃ¡rios leves para documentaÃ§Ã£o -->
 <!-- HEADER parcial: navegaÃ§Ã£o principal (carregado via main.js) -->
-<header class="site-header" role="banner">
-    <meta name="description" content="PÃ¡gina Header da Plataforma ONG.">
+<header class="navbar">
+  <div class="navbar__inner container">
+    <a class="navbar__brand" href="index.html">Esperança Viva</a>
 
-    <title>Header</title>
+    <!-- Botão hambúrguer (mobile) -->
+    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+      ☰ Menu
+    </button>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Menu principal -->
+    <nav class="navbar__menu" aria-label="Menu principal">
+      <a class="navbar__link" href="index.html">Início</a>
 
-  <div class="container header-grid">
-    <a class="brand" href="/src/index.html" aria-label="InÃ­cio">A Noiva</a>
-    <nav class="site-nav" role="navigation" aria-label="NavegaÃ§Ã£o principal">
-      <ul>
-        <li><a href="/src/index.html" data-nav>InÃ­cio</a></li>
-        <li><a href="/src/sobre.html" data-nav>Sobre</a></li>
-        <li><a href="/src/projetos.html" data-nav>Projetos</a></li>
-        <li><a href="/src/voluntarios.html" data-nav>Voluntarios</a></li>
-        <li><a href="/src/doacoes.html" data-nav>DoaÃ§Ãµes</a></li>
-        <li><a href="/src/transparencia.html" data-nav>TransparÃªncia</a></li>
-        <li><a href="/src/blog.html" data-nav>Blog</a></li>
-        <li><a href="/src/contato.html" data-nav>Contato</a></li>
-      </ul>
+      <div class="dropdown">
+        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+        <div class="dropdown__menu" role="menu">
+          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
+          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        </div>
+      </div>
+
+      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+      <a class="navbar__link" href="doacoes.html">Doações</a>
+      <a class="navbar__link" href="transparencia.html">Transparência</a>
+      <a class="navbar__link" href="sobre.html">Sobre</a>
+      <a class="navbar__link" href="contato.html">Contato</a>
+      <a class="navbar__link" href="blog.html">Blog</a>
     </nav>
   </div>
 </header>
+

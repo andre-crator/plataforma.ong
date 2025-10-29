@@ -24,20 +24,36 @@
 </head>
 <body>
   <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
-  <header>
-    <nav aria-label="NavegaÃ§Ã£o principal do site">
-      <ul>
-        <li><a href="index.html">InÃ­cio</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="voluntarios.html">Voluntarios</a></li>
-        <li><a href="doacoes.html" aria-current="page">Como Doar</a></li>
-        <li><a href="transparencia.html">TransparÃªncia</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog.html">Blog/NotÃ­cias</a></li>
-      </ul>
+  <header class="navbar">
+  <div class="navbar__inner container">
+    <a class="navbar__brand" href="index.html">Esperança Viva</a>
+
+    <!-- Botão hambúrguer (mobile) -->
+    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+      ☰ Menu
+    </button>
+
+    <!-- Menu principal -->
+    <nav class="navbar__menu" aria-label="Menu principal">
+      <a class="navbar__link" href="index.html">Início</a>
+
+      <div class="dropdown">
+        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+        <div class="dropdown__menu" role="menu">
+          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
+          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        </div>
+      </div>
+
+      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+      <a class="navbar__link" href="doacoes.html">Doações</a>
+      <a class="navbar__link" href="transparencia.html">Transparência</a>
+      <a class="navbar__link" href="sobre.html">Sobre</a>
+      <a class="navbar__link" href="contato.html">Contato</a>
+      <a class="navbar__link" href="blog.html">Blog</a>
     </nav>
-  </header>
+  </div>
+</header>
 
   <!-- ========================= ConteÃºdo Principal ========================= -->
   <main id="conteudo-principal">
@@ -287,3 +303,4 @@
   </script>
 </body>
 </html>
+
