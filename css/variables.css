@@ -6,26 +6,35 @@
    espaçamentos e grid. Este arquivo define a identidade visual do site.
 ====================================================== */
 
-:root {
-  /* 🎨 Paleta de Cores */
-  --color-primary: #0055a5;
-  --color-secondary: #00a5a8;
-  --color-accent: #f9a825;
-  --color-success: #2ecc71;
-  --color-error: #e74c3c;
-  --color-warning: #f39c12;
-  --color-neutral-light: #f4f4f4;
-  --color-neutral-dark: #2c3e50;
+:root{
+  /* ===== Cores (≥8) ===== */
+  --color-primary-600:#1e88e5; /* azul principal */
+  --color-primary-700:#1565c0;
+  --color-secondary-600:#e53935; /* vermelho de destaque */
+  --color-secondary-700:#c62828;
+  --color-neutral-900:#0f172a;  /* texto forte */
+  --color-neutral-700:#334155;
+  --color-neutral-500:#64748b;
+  --color-neutral-300:#cbd5e1;
+  --color-neutral-200:#e2e8f0;
+  --color-neutral-100:#f1f5f9;
+  --color-success:#22c55e;
+  --color-warning:#f59e0b;
+  --color-danger:#ef4444;
+  --color-info:#3b82f6;
+  --color-bg:#ffffff;
 
-  /* 🧩 Tipografia */
-  --font-base: 'Poppins', sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
+  /* ===== Tipografia (≥5 tamanhos) ===== */
+  --fs-xxl: clamp(2rem, 2vw + 1rem, 3rem);
+  --fs-xl:  2rem;
+  --fs-lg:  1.5rem;
+  --fs-md:  1.125rem;
+  --fs-sm:  1rem;
+  --fs-xs:  0.875rem;
 
-  /* 📏 Espaçamentos (escala modular 8px) */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  /* ===== Espaçamento (escala modular) ===== */
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -33,7 +42,21 @@
   --space-5: 48px;
   --space-6: 64px;
 
-  /* 🔳 Grid */
-  --grid-columns: 12;
-  --grid-gap: 16px;
+  /* ===== Sombra / raio ===== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-1: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-2: 0 6px 20px rgba(0,0,0,.12);
+}
+
+/* Reset tipográfico básico usando variáveis */
+html{font-size:16px}
+body{
+  margin:0;
+  color:var(--color-neutral-900);
+  background:var(--color-neutral-100);
+  font-family:var(--font-sans);
+  font-size:var(--fs-sm);
+  line-height:1.6;
 }
