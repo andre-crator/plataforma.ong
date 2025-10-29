@@ -7,57 +7,109 @@
 ====================================================== */
 
 /* Container principal */
-.container {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  gap: var(--grid-gap);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-3);
+/* ===== Breakpoints (≥5) ===== */
+@media (min-width:360px){:root{--container:px}}
+@media (min-width:480px){:root{--container:440px}}
+@media (min-width:640px){:root{--container:600px}}
+@media (min-width:768px){:root{--container:720px}}
+@media (min-width:1024px){:root{--container:960px}}
+@media (min-width:1280px){:root{--container:1200px}}
+
+/* Contêiner e helpers */
+.container{
+  width:100%;
+  max-width:var(--container, 1200px);
+  margin-inline:auto;
+  padding-inline:var(--space-2);
 }
 
-/* Layouts com flex internos */
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+.section{padding:var(--space-5) 0}
+.section--tight{padding:var(--space-3) 0}
+
+/* ===== Grid 12 colunas ===== */
+.row{
+  display:grid;
+  gap:var(--space-3);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+[class^="col-"]{min-width:0}
+
+/* Mobile default = 12 */
+.col-12{grid-column: span 12}
+.col-6{grid-column: span 12}
+.col-4{grid-column: span 12}
+.col-3{grid-column: span 12}
+
+/* ≥640px */
+@media (min-width:640px){
+  .sm\\:col-6{grid-column: span 6}
+  .sm\\:col-4{grid-column: span 4}
+  .sm\\:col-3{grid-column: span 3}
+}
+/* ≥768px */
+@media (min-width:768px){
+  .md\\:col-6{grid-column: span 6}
+  .md\\:col-4{grid-column: span 4}
+  .md\\:col-3{grid-column: span 3}
+}
+/* ≥1024px */
+@media (min-width:1024px){
+  .lg\\:col-6{grid-column: span 6}
+  .lg\\:col-4{grid-column: span 4}
+  .lg\\:col-3{grid-column: span 3}
 }
 
-/* Layout centralizado */
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ===== Header / navegação responsiva ===== */
+.header{
+  position:sticky; top:0; z-index:50;
+  background:var(--color-bg);
+  border-bottom:1px solid var(--color-neutral-200);
+  box-shadow: var(--shadow-1);
 }
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;
+}
+.nav__brand{font-weight:700; font-size:var(--fs-md); color:var(--color-primary-700); text-decoration:none}
+.nav__menu{display:flex; align-items:center; gap:var(--space-2)}
+.nav__link{
+  text-decoration:none; color:var(--color-neutral-700);
+  padding:8px 12px; border-radius:var(--radius-sm);
+}
+.nav_link:hover, .nav_link:focus{background:var(--color-neutral-200); color:var(--color-neutral-900); outline:none}
 
-/* 📱 Responsividade com breakpoints */
-@media (max-width: 1200px) {
-  .container {
-    grid-template-columns: repeat(8, 1fr);
+/* Dropdown */
+.dropdown{position:relative}
+.dropdown__toggle{cursor:pointer}
+.dropdown__menu{
+  position:absolute; top:100%; right:0; min-width:200px;
+  background:#fff; border:1px solid var(--color-neutral-200);
+  border-radius:var(--radius-md); box-shadow:var(--shadow-2);
+  padding:var(--space-2); display:none;
+}
+.dropdown.open .dropdown__menu{display:block}
+
+/* Menu mobile */
+.nav__toggle{
+  display:none; cursor:pointer; border:0; background:transparent; padding:8px
+}
+.nav__toggle span{display:block; width:24px; height:2px; background:var(--color-neutral-900); margin:5px 0}
+
+/* Empilha no mobile */
+@media (max-width:768px){
+  .nav__toggle{display:block}
+  .nav__menu{
+    position:absolute; inset:64px 0 auto 0;
+    background:#fff; border-bottom:1px solid var(--color-neutral-200);
+    flex-direction:column; align-items:stretch; gap:0; display:none;
   }
+  .nav.open .nav__menu{display:flex}
+  .nav__link{padding:12px 16px}
 }
 
-@media (max-width: 992px) {
-  .container {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 400px) {
-  .container {
-    grid-template-columns: repeat(1, 1fr);
-  }
+/* Footer */
+.footer{
+  margin-top:var(--space-6);
+  background:#fff; border-top:1px solid var(--color-neutral-200);
+  padding:var(--space-4) 0; color:var(--color-neutral-700);
 }
