@@ -1,41 +1,36 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <!--
-    ============================================================
-    Plataforma ONG â€“ INDEX (PÃ¡gina Inicial)
-    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
-    Atende aos itens:
-      â€¢ Estrutura semÃ¢ntica (header/nav/main/section/footer)
-      â€¢ Hierarquia de tÃ­tulos (1 Ãºnico H1)
-      â€¢ Galeria responsiva (â‰¥ 20 imagens) com lazy loading
-      â€¢ Acessibilidade bÃ¡sica (aria, alt, landmarks)
-      â€¢ ComentÃ¡rios explicativos no cÃ³digo
-    ObservaÃ§Ã£o:
-      â€¢ FormulÃ¡rios complexos, mÃ¡scaras e grÃ¡ficos estÃ£o nas
-        pÃ¡ginas especÃ­ficas (voluntariado / projetos / doacoes /
-        transparencia), conforme a especificaÃ§Ã£o.
-    ============================================================
-  -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+  <div class="navbar__inner container">
+    <a class="navbar__brand" href="index.html">Esperança Viva</a>
 
-  <!-- SEO bÃ¡sico -->
-  <title>InÃ­cio â€¢ Plataforma ONG</title>
-  <meta name="description" content="ConheÃ§a nossos projetos, participe junto com nossos VoluntÃ¡rios e acompanhe a transparÃªncia da ONG." />
+    <!-- Botão hambúrguer (mobile) -->
+    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+      ☰ Menu
+    </button>
 
-  <!-- Open Graph (opcional para compartilhamento social) -->
-  <meta property="og:title" content="Plataforma ONG" />
-  <meta property="og:description" content="TransparÃªncia, projetos sociais e voluntarios." />
-  <meta property="og:type" content="website" />
+    <!-- Menu principal -->
+    <nav class="navbar__menu" aria-label="Menu principal">
+      <a class="navbar__link" href="index.html">Início</a>
 
-  <!-- CSS do projeto (caminhos conforme sua estrutura /css) -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
+      <div class="dropdown">
+        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+        <div class="dropdown__menu" role="menu">
+          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
+          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        </div>
+      </div>
 
-  <!-- Dica de performance (opcional): prÃ©-carregar CSS principal -->
-  <!-- <link rel="preload" href="css/style.css" as="style"> -->
-</head>
+      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+      <a class="navbar__link" href="doacoes.html">Doações</a>
+      <a class="navbar__link" href="transparencia.html">Transparência</a>
+      <a class="navbar__link" href="sobre.html">Sobre</a>
+      <a class="navbar__link" href="contato.html">Contato</a>
+      <a class="navbar__link" href="blog.html">Blog</a>
+    </nav>
+  </div>
+</header>
 <body>
   <!-- ==========================================================
        CABEÃ‡ALHO + NAVEGAÃ‡ÃƒO PRINCIPAL
