@@ -7,7 +7,7 @@
 
 # 🌿 Plataforma ONG – Esperança Viva  
 
-Site institucional desenvolvido em *HTML5, **CSS3* e *JavaScript, aplicando os fundamentos de **semântica, **formulários interativos, **multimídia* e **gráficos em <canvas>**.  
+Site institucional desenvolvido em *HTML5,**CSS3* e *JavaScript, aplicando os fundamentos de **semântica,**formulários interativos,**multimídia* e **gráficos em <canvas>**.  
 
 ---
 
