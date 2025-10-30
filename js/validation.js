@@ -1,164 +1,222 @@
-/* =========================================================================
- * validation.js — Validação de formulários
- * - Regras genéricas (required, e-mail, min/max length)
- * - Regras específicas: CPF, CEP, telefone (básicas)
- * - Realce visual (classes .is-invalid / .is-valid) + mensagens
- * - Bloqueia envio se houver erros e foca no primeiro inválido
- * ========================================================================= */
+// @ts-nocheck
+// js/validation.js
+// Validação acessível, modular, sem TypeScript e sem dependências.
 
+// IIFE que cria Validation no escopo global (window.Validation)
 (function () {
-  // ---- Helpers simples de validação ----
-  const isEmail = (v) => /\S+@\S+\.\S+/.test(v);
-  const onlyDigits = (v) => (v || "").replace(/\D+/g, "");
-  const isCPF = (v) => {
-    // Validação básica (tamanho e repetição) — suficiente para front
-    const d = onlyDigits(v);
-    if (d.length !== 11) return false;
-    if (/^(\d)\1{10}$/.test(d)) return false;
-    // Cálculo DV simples
-    const dv = (nums, factor) => {
-      let t = 0;
-      for (let i = 0; i < nums.length; i++) t += parseInt(nums[i], 10) * (factor - i);
-      const r = t % 11;
-      return r < 2 ? 0 : 11 - r;
-    };
-    const dig1 = dv(d.slice(0, 9), 10);
-    const dig2 = dv(d.slice(0, 10), 11);
-    return dig1 === parseInt(d[9], 10) && dig2 === parseInt(d[10], 10);
-  };
-  const isCEP = (v) => onlyDigits(v).length === 8;
-  const isPhone = (v) => {
-    const d = onlyDigits(v);
-    return d.length >= 10 && d.length <= 11;
-  };
+  'use strict';
 
-  // ---- Render de mensagens ----
-  function showError(input, msg) {
-    input.classList.remove("is-valid");
-    input.classList.add("is-invalid");
-    let box = input.parentElement.querySelector(".field-error");
-    if (!box) {
-      box = document.createElement("small");
-      box.className = "field-error";
-      input.parentElement.appendChild(box);
+  // --- Helpers de UI ---
+  function ensureErrorEl(input) {
+    var parent = input.parentElement;
+    var msgEl = parent ? parent.querySelector('.field-error') : null;
+    if (!msgEl) {
+      msgEl = document.createElement('div');
+      msgEl.className = 'field-error';
+      if (parent) parent.appendChild(msgEl);
     }
-    box.textContent = msg;
-    input.setAttribute("aria-invalid", "true");
+    return msgEl;
+  }
+
+  function setError(input, message) {
+    var msgEl = ensureErrorEl(input);
+    input.classList.add('is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+    msgEl.textContent = message;
+    msgEl.setAttribute('role', 'alert');
   }
 
   function clearError(input) {
-    input.classList.remove("is-invalid");
-    input.classList.add("is-valid");
-    const box = input.parentElement.querySelector(".field-error");
-    if (box) box.textContent = "";
-    input.removeAttribute("aria-invalid");
+    var parent = input.parentElement;
+    var msgEl = parent ? parent.querySelector('.field-error') : null;
+    input.classList.remove('is-invalid');
+    input.removeAttribute('aria-invalid');
+    if (msgEl) {
+      msgEl.textContent = '';
+      msgEl.removeAttribute('role');
+    }
   }
 
-  // ---- Validação por regras declarativas (data-*) ----
-  function validateInput(input) {
-    const v = (input.value || "").trim();
-    const label = input.getAttribute("aria-label") || input.name || "Campo";
+  // --- Validadores básicos ---
+  function isEmail(v) {
+    v = String(v || '').trim();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
 
-    if (input.hasAttribute("required") && !v) {
-      showError(input, ${label}: campo obrigatorio.);
-      return false;
-    }
+  function isMinLen(v, n) {
+    v = String(v || '').trim();
+    return v.length >= Number(n);
+  }
 
-    // Tipos comuns
-    if (input.type === "email" && v && !isEmail(v)) {
-      showError(input, ${label}: e-mail inválido.);
-      return false;
-    }
+  function isCEP(v) {
+    v = String(v || '').trim();
+    return /^\d{5}-?\d{3}$/.test(v);
+  }
 
-    // Regras customizadas
-    const rule = input.dataset.validate; // ex.: data-validate="cpf|cep|phone"
-    if (rule && v) {
-      const parts = rule.split("|");
-      for (const r of parts) {
-        if (r === "cpf" && !isCPF(v)) {
-          showError(input, ${label}: CPF inválido.);
+  function isPhoneBR(v) {
+    v = String(v || '').trim();
+    return /^(?:\+?55\s?)?(?:\(?\d{2}\)?\s?)?(?:9?\d{4})-?\d{4}$/.test(v);
+  }
+
+  function selectHasValue(el) {
+    return el && el.tagName === 'SELECT' && el.value && el.value.trim() !== '';
+  }
+
+  function checkboxChecked(el) {
+    return el && el.type === 'checkbox' && el.checked === true;
+  }
+
+  // --- Mensagens padrão ---
+  var defaultMessages = {
+    required: 'Este campo é obrigatório.',
+    email: 'Informe um e-mail válido.',
+    minlen: function (n) { return 'Digite pelo menos ' + n + ' caracteres.'; },
+    cep: 'CEP inválido. Use 00000-000.',
+    phoneBR: 'Telefone inválido. Ex.: (21) 99999-0000',
+    selectRequired: 'Selecione uma opção.',
+    checkboxRequired: 'Marque esta opção para continuar.'
+  };
+
+  // --- Executa regras em um input ---
+  function runRulesOnInput(input, rules) {
+    var value = input.value;
+    for (var i = 0; i < rules.length; i++) {
+      var rule = rules[i];
+
+      if (rule.name === 'required') {
+        if (
+          (input.type === 'checkbox' && !checkboxChecked(input)) ||
+          (input.tagName === 'SELECT' && !selectHasValue(input)) ||
+          String(value || '').trim() === ''
+        ) {
+          setError(input, rule.message || defaultMessages.required);
           return false;
         }
-        if (r === "cep" && !isCEP(v)) {
-          showError(input, ${label}: CEP inválido (formato 00000-000).);
+      } else if (rule.name === 'email') {
+        if (String(value || '').trim() !== '' && !isEmail(value)) {
+          setError(input, rule.message || defaultMessages.email);
           return false;
         }
-        if (r === "phone" && !isPhone(v)) {
-          showError(input, ${label}: telefone inválido.);
+      } else if (rule.name === 'minlen') {
+        var n = Number(rule.param || 3);
+        if (!isMinLen(value, n)) {
+          var msg = rule.message || defaultMessages.minlen(n);
+          setError(input, msg);
+          return false;
+        }
+      } else if (rule.name === 'cep') {
+        if (String(value || '').trim() !== '' && !isCEP(value)) {
+          setError(input, rule.message || defaultMessages.cep);
+          return false;
+        }
+      } else if (rule.name === 'phoneBR') {
+        if (String(value || '').trim() !== '' && !isPhoneBR(value)) {
+          setError(input, rule.message || defaultMessages.phoneBR);
+          return false;
+        }
+      } else if (rule.name === 'selectRequired') {
+        if (!selectHasValue(input)) {
+          setError(input, rule.message || defaultMessages.selectRequired);
+          return false;
+        }
+      } else if (rule.name === 'checkboxRequired') {
+        if (!checkboxChecked(input)) {
+          setError(input, rule.message || defaultMessages.checkboxRequired);
           return false;
         }
       }
     }
-
-    // Tamanhos mínimos/máximos (opcionais)
-    const min = input.getAttribute("minlength");
-    if (min && v && v.length < parseInt(min, 10)) {
-      showError(input, ${label}: mínimo de ${min} caracteres.);
-      return false;
-    }
-    const max = input.getAttribute("maxlength");
-    if (max && v && v.length > parseInt(max, 10)) {
-      showError(input, ${label}: máximo de ${max} caracteres.);
-      return false;
-    }
-
     clearError(input);
     return true;
   }
 
-  // ---- Bind global de eventos ----
-  document.addEventListener("input", (e) => {
-    const t = e.target;
-    if (t.matches("input, textarea")) {
-      // Validação em tempo real (leve)
-      if (t.hasAttribute("required") || t.dataset.validate) {
-        validateInput(t);
-      }
+  // --- Configuração por formulário (ajuste os seletores para os seus forms) ---
+  var formsConfig = [
+    {
+      // Contato institucional
+      selector: '#form-contato, form[action*="contato"]',
+      fields: [
+        { selector: 'input[name="nome"]', rules: [ { name: 'required' }, { name: 'minlen', param: 3 } ] },
+        { selector: 'input[name="email"]', rules: [ { name: 'required' }, { name: 'email' } ] },
+        { selector: 'input[name="telefone"]', rules: [ { name: 'phoneBR' } ] },
+        { selector: 'textarea[name="mensagem"]', rules: [ { name: 'required' }, { name: 'minlen', param: 10 } ] },
+        { selector: 'input[name="aceiteLGPD"]', rules: [ { name: 'checkboxRequired' } ] }
+      ]
+    },
+    {
+      // Inscrição de projetos
+      selector: '#form-projetos, form[action*="inscricao-projeto"]',
+      fields: [
+        { selector: 'input[name="nomeCompleto"]', rules: [ { name: 'required' }, { name: 'minlen', param: 3 } ] },
+        { selector: 'input[name="email"]', rules: [ { name: 'required' }, { name: 'email' } ] },
+        { selector: 'input[name="cep"]', rules: [ { name: 'cep' } ] },
+        { selector: 'select[name="area"]', rules: [ { name: 'selectRequired' } ] }
+      ]
+    },
+    {
+      // Newsletter / doações (exemplo)
+      selector: '#form-newsletter, form[action*="newsletter"]',
+      fields: [
+        { selector: 'input[name="email"]', rules: [ { name: 'required' }, { name: 'email' } ] }
+      ]
     }
-  });
+  ];
 
-  document.addEventListener("blur", (e) => {
-    const t = e.target;
-    if (t.matches("input, textarea")) {
-      if (t.hasAttribute("required") || t.dataset.validate) {
-        validateInput(t);
-      }
+  // --- "Pluga" listeners por formulário ---
+  function attachToForm(form, config) {
+    var fields = [];
+    for (var i = 0; i < config.fields.length; i++) {
+      var f = config.fields[i];
+      var el = form.querySelector(f.selector);
+      if (el) fields.push({ el: el, rules: f.rules });
     }
-  }, true);
 
-  // ---- Intercepta SUBMIT de qualquer <form> ----
-  document.addEventListener("submit", (e) => {
-    const form = e.target;
-    if (!form.matches("form")) return;
+    // Validação em tempo real
+    for (var j = 0; j < fields.length; j++) {
+      (function (entry) {
+        function handler() { runRulesOnInput(entry.el, entry.rules); }
+        entry.el.addEventListener('blur', handler);
+        entry.el.addEventListener('input', function () {
+          if (entry.el.classList.contains('is-invalid')) handler();
+        });
+        if (entry.el.tagName === 'SELECT' || entry.el.type === 'checkbox') {
+          entry.el.addEventListener('change', handler);
+        }
+      })(fields[j]);
+    }
 
-    const fields = form.querySelectorAll("input, textarea, select");
-    let firstInvalid = null;
-    let ok = true;
-
-    fields.forEach((el) => {
-      // valida apenas os que têm regra (required ou data-validate ou tipos comuns)
-      const needs =
-        el.hasAttribute("required") ||
-        el.dataset.validate ||
-        ["email"].includes(el.type);
-      if (needs) {
-        const pass = validateInput(el);
-        if (!pass) {
+    // Submit final
+    form.addEventListener('submit', function (e) {
+      var ok = true;
+      for (var k = 0; k < fields.length; k++) {
+        var entry = fields[k];
+        var valid = runRulesOnInput(entry.el, entry.rules);
+        if (!valid && ok) {
           ok = false;
-          if (!firstInvalid) firstInvalid = el;
+          entry.el.focus();
         }
       }
+      if (!ok) e.preventDefault();
     });
+  }
 
-    if (!ok) {
-      e.preventDefault();
-      firstInvalid?.focus();
-      alert("⚠ Revise os campos destacados antes de enviar.");
+  // --- Inicialização ---
+  function init() {
+    for (var i = 0; i < formsConfig.length; i++) {
+      var cfg = formsConfig[i];
+      var list = document.querySelectorAll(cfg.selector);
+      for (var j = 0; j < list.length; j++) {
+        attachToForm(list[j], cfg);
+      }
     }
-  });
+  }
 
-  // Re-binds após navegação SPA
-  document.addEventListener("spa:content:replaced", () => {
-    // Nada extra a fazer aqui porque usamos delegação de eventos (document)
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // expõe publicamente
+  window.Validation = { init: init };
 })();
