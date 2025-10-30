@@ -13,7 +13,7 @@
   function keyFor(input) {
     // chave única por página + nome do campo
     const page = location.pathname.split("/").pop() || "index.html";
-    return ${PREFIX}${page}_${input.name};
+    return PREFIX + page + "_" + input.name ;
   }
 
   function restoreAll() {

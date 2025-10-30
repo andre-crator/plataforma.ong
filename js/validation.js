@@ -60,7 +60,7 @@
     const label = input.getAttribute("aria-label") || input.name || "Campo";
 
     if (input.hasAttribute("required") && !v) {
-      showError(input, ${label}: preenchimento obrigatório.);
+      showError(input, ${label}: campo obrigatorio.);
       return false;
     }
 
