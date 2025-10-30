@@ -1,325 +1,206 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <!--
-    ============================================================
-    Plataforma ONG â€” DOAÃ‡Ã•ES
-    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
-    Requisitos nesta pÃ¡gina:
-      â€¢ Estrutura semÃ¢ntica (header/nav/main/footer)
-      â€¢ FormulÃ¡rio de doaÃ§Ã£o com mÃºltiplos inputs (number, radio, email, checkbox)
-      â€¢ ValidaÃ§Ã£o HTML5 + mÃ¡scara/formatador de moeda
-      â€¢ FormulÃ¡rio de newsletter (e-mail + preferÃªncias)
-      â€¢ ComentÃ¡rios explicativos
-    ============================================================
-  -->
-  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Como Doar â€¢ Plataforma ONG</title>
-  <meta name="description" content="Doe para apoiar as aÃ§Ãµes da ONG e assine nossa newsletter para receber novidades." />
-
-  <!-- CSS do projeto -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  
-  <link rel='stylesheet' href='css/reset.css'>
-  <link rel='stylesheet' href='css/variables.css'>
-  <link rel='stylesheet' href='css/layouts.css'>
-  <link rel='stylesheet' href='css/components.css'>
-  <link rel='stylesheet' href='css/styles.css'>
+  <title>Doações • Plataforma ONG</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
+  <!-- ===== NAVBAR ===== -->
   <header class="navbar">
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <div class="navbar__inner container">
-    <a class="navbar__brand" href="index.html">Esperança Viva</a>
+    <div class="navbar__inner container">
+      <a class="navbar__brand" href="index.html">Esperança Viva</a>
 
-    <!-- Botão hambúrguer (mobile) -->
-    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
-      ☰ Menu
-    </button>
+      <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+        ☰ Menu
+      </button>
 
-    <!-- Menu principal -->
-    <nav class="navbar__menu" aria-label="Menu principal">
-      <a class="navbar__link" href="index.html">Início</a>
+      <nav class="navbar__menu" aria-label="Menu principal">
+        <a class="navbar__link" href="index.html">Início</a>
 
-      <div class="dropdown">
-        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
-        <div class="dropdown__menu" role="menu">
-          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
-          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        <div class="dropdown">
+          <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+          <div class="dropdown__menu" role="menu">
+            <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
+            <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+          </div>
         </div>
+
+        <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+        <a class="navbar__link is-active" href="doacoes.html">Doações</a>
+        <a class="navbar__link" href="transparencia.html">Transparência</a>
+        <a class="navbar__link" href="sobre.html">Sobre</a>
+        <a class="navbar__link" href="contato.html">Contato</a>
+        <a class="navbar__link" href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== /NAVBAR ===== -->
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Doe e transforme vidas</h1>
+    <p>Escolha o valor e a forma de doação. Toda contribuição é importante.</p>
+  </section>
+
+  <!-- ===== FORMULÁRIO ===== -->
+  <main class="section container">
+    <form id="form-doacao" class="form" novalidate>
+      <!-- Seus dados -->
+      <fieldset class="card">
+        <legend>Seus dados</legend>
+        <div class="grid">
+          <label class="form__field">
+            <span>Nome completo</span>
+            <input type="text" name="nome" placeholder="Seu nome" required />
+          </label>
+          <label class="form__field">
+            <span>E-mail</span>
+            <input type="email" name="email" placeholder="seuemail@exemplo.com" required />
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Valor -->
+      <fieldset class="card">
+        <legend>Valor da doação</legend>
+        <div class="grid">
+          <div class="form__field">
+            <span>Selecione um valor rápido</span>
+            <div class="chip-group" role="group" aria-label="Valores sugeridos">
+              <button class="chip" data-valor="50" type="button">R$ 50</button>
+              <button class="chip" data-valor="100" type="button">R$ 100</button>
+              <button class="chip" data-valor="200" type="button">R$ 200</button>
+              <button class="chip" data-valor="0" type="button">Outro</button>
+            </div>
+          </div>
+
+          <label class="form__field">
+            <span>Valor (em reais)</span>
+            <input type="text" inputmode="decimal" name="valor" id="valor" placeholder="0,00" required />
+          </label>
+
+          <label class="form__field grid-col-span-2">
+            <span>Mensagem (opcional)</span>
+            <textarea name="mensagem" rows="3" placeholder="Deixe uma mensagem"></textarea>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Preferências -->
+      <fieldset class="card">
+        <legend>Preferências</legend>
+        <div class="grid">
+          <div class="form__field">
+            <span>Recorrência</span>
+            <div class="radio-group">
+              <label><input type="radio" name="recorrencia" value="unica" checked /> Única</label>
+              <label><input type="radio" name="recorrencia" value="mensal" /> Mensal</label>
+            </div>
+          </div>
+
+          <div class="form__field">
+            <span>Método de pagamento</span>
+            <div class="radio-group" id="pagto">
+              <label><input type="radio" name="pagamento" value="pix" checked /> PIX</label>
+              <label><input type="radio" name="pagamento" value="cartao" /> Cartão</label>
+              <label><input type="radio" name="pagamento" value="boleto" /> Boleto</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Áreas condicionais (simples demonstração) -->
+      <section id="area-pix" class="card">
+        <h3>Pagamento via PIX</h3>
+        <p class="muted">Use a chave PIX abaixo. Ao concluir o envio do formulário, você receberá o comprovante por e-mail.</p>
+        <div class="grid">
+          <label class="form__field grid-col-span-2">
+            <span>Chave PIX (e-mail)</span>
+            <input type="text" value="doacoes@esperancaviva.org" readonly />
+          </label>
+        </div>
+      </section>
+
+      <section id="area-cartao" class="card" hidden>
+        <h3>Pagamento via Cartão</h3>
+        <div class="grid">
+          <label class="form__field">
+            <span>Número do cartão</span>
+            <input type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" />
+          </label>
+          <label class="form__field">
+            <span>Validade</span>
+            <input type="text" inputmode="numeric" placeholder="MM/AA" />
+          </label>
+          <label class="form__field">
+            <span>CVV</span>
+            <input type="text" inputmode="numeric" placeholder="000" />
+          </label>
+          <label class="form__field grid-col-span-2">
+            <span>Nome impresso</span>
+            <input type="text" placeholder="Como está no cartão" />
+          </label>
+        </div>
+      </section>
+
+      <section id="area-boleto" class="card" hidden>
+        <h3>Pagamento via Boleto</h3>
+        <p class="muted">Geraremos um boleto após o envio. Você poderá baixá-lo e pagar no seu banco.</p>
+      </section>
+
+      <div class="actions" style="margin-top: var(--space-3)">
+        <button type="submit" class="button button--primary">Confirmar doação</button>
+        <button type="reset" class="button button--muted">Limpar</button>
       </div>
 
-      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
-      <a class="navbar__link" href="doacoes.html">Doações</a>
-      <a class="navbar__link" href="transparencia.html">Transparência</a>
-      <a class="navbar__link" href="sobre.html">Sobre</a>
-      <a class="navbar__link" href="contato.html">Contato</a>
-      <a class="navbar__link" href="blog.html">Blog</a>
-    </nav>
-  </div>
-</header>
-
-  <!-- ========================= ConteÃºdo Principal ========================= -->
-  <main id="conteudo-principal">
-    <section class="card" aria-labelledby="titulo-doar">
-      <h1 id="titulo-doar">Doe e transforme vidas</h1>
-      <p>Escolha o valor e a forma de doaÃ§Ã£o. Toda contribuiÃ§Ã£o Ã© importante.</p>
-    </section>
-
-    <!-- ===================== FormulÃ¡rio de DoaÃ§Ã£o ===================== -->
-    <section class="card" aria-labelledby="titulo-form-doacao">
-      <h2 id="titulo-form-doacao">FormulÃ¡rio de DoaÃ§Ã£o</h2>
-
-      <!--
-        novalidate: controlaremos a UX pelo JS (foco no primeiro campo invÃ¡lido)
-        ObservaÃ§Ã£o: sem backend nesta entrega; simulaÃ§Ã£o de envio com alert.
-      -->
-      <form id="form-doacao" action="#" method="post" novalidate>
-        <!-- IdentificaÃ§Ã£o -->
-        <fieldset>
-          <legend>Seus dados</legend>
-
-          <label for="nome">Nome completo *</label>
-          <input id="nome" name="nome" autocomplete="name" required />
-
-          <label for="email">E-mail *</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </fieldset>
-
-        <!-- Valor da doaÃ§Ã£o -->
-        <fieldset>
-          <legend>Valor</legend>
-
-          <!--
-            Campo de moeda:
-            - inputmode="numeric" para teclado numÃ©rico em mobile
-            - mÃ¡scara/formatador em JS (R$ 0,00)
-          -->
-          <label for="valor">Valor (R$) *</label>
-          <input id="valor" name="valor" inputmode="numeric" placeholder="R$ 50,00" required
-                 aria-describedby="ajuda-valor" />
-          <small id="ajuda-valor">Digite apenas nÃºmeros; formataÃ§Ã£o aparece automaticamente.</small>
-
-          <!-- SugestÃµes rÃ¡pidas -->
-          <div role="group" aria-label="SugestÃµes de valor" class="acoes-rapidas" style="gap:.5rem; margin-top:.5rem;">
-            <button type="button" data-valor="50">R$ 50</button>
-            <button type="button" data-valor="100">R$ 100</button>
-            <button type="button" data-valor="200">R$ 200</button>
-          </div>
-        </fieldset>
-
-        <!-- RecorrÃªncia -->
-        <fieldset>
-          <legend>RecorrÃªncia</legend>
-          <label><input type="radio" name="recorrencia" value="unica" checked> Ãšnica</label>
-          <label><input type="radio" name="recorrencia" value="mensal"> Mensal</label>
-        </fieldset>
-
-        <!-- MÃ©todo de pagamento -->
-        <fieldset>
-          <legend>MÃ©todo de pagamento</legend>
-          <label><input type="radio" name="pagamento" value="pix" checked> PIX</label>
-          <label><input type="radio" name="pagamento" value="cartao"> CartÃ£o</label>
-          <label><input type="radio" name="pagamento" value="boleto"> Boleto</label>
-
-          <!-- Ãrea dinÃ¢mica: mostra instruÃ§Ãµes conforme o mÃ©todo -->
-          <div id="area-pagamento" class="card" style="margin-top:12px;">
-            <!-- conteÃºdo preenchido via JS -->
-          </div>
-        </fieldset>
-
-        <!-- Aceite dos termos -->
-        <fieldset>
-          <legend>ConfirmaÃ§Ã£o</legend>
-          <label>
-            <input type="checkbox" id="termos" required>
-            Confirmo que os dados estÃ£o corretos e concordo com os termos de doaÃ§Ã£o.
-          </label>
-        </fieldset>
-
-        <button type="submit">Confirmar doaÃ§Ã£o</button>
-      </form>
-    </section>
-
-    <!-- ===================== Newsletter ===================== -->
-    <section class="card" aria-labelledby="titulo-news">
-      <h2 id="titulo-news">Assine nossa Newsletter</h2>
-      <p>Receba novidades sobre projetos, campanhas e eventos.</p>
-
-      <form id="form-newsletter" action="#" method="post" novalidate>
-        <label for="news-email">E-mail *</label>
-        <input id="news-email" name="email" type="email" required placeholder="seunome@email.com" />
-
-        <fieldset>
-          <legend>PreferÃªncias</legend>
-          <label><input type="checkbox" name="pref" value="noticias" checked> NotÃ­cias</label>
-          <label><input type="checkbox" name="pref" value="eventos"> Eventos</label>
-          <label><input type="checkbox" name="pref" value="campanhas"> Campanhas</label>
-        </fieldset>
-
-        <button type="submit">Assinar</button>
-      </form>
-    </section>
+      <p class="muted" role="status" id="msg-status" aria-live="polite"></p>
+    </form>
   </main>
 
-  <!-- ============================== RodapÃ© ============================== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
+    © 2025 ONG Exemplo — Todos os direitos reservados
   </footer>
 
-  <!-- ============================== Scripts ============================== -->
+  <script src="js/main.js"></script>
   <script>
-    // Atualiza ano no rodapÃ©
-    document.getElementById('ano-atual').textContent = new Date().getFullYear();
-
-    /*
-      ============================================================
-      FORMATADOR DE MOEDA (R$)
-      ============================================================
-      â€¢ Aceita sÃ³ dÃ­gitos.
-      â€¢ Exibe como "R$ 1.234,56" conforme digita.
-    */
+    // —— valores sugeridos
+    const chips = document.querySelectorAll('.chip[data-valor]');
     const inputValor = document.getElementById('valor');
-
-    function formatBRLFromDigits(digits) {
-      // digits = somente nÃºmeros (centavos no fim)
-      const n = Number(digits) / 100;
-      return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    function formataBRL(n){
+      if (isNaN(n)) return '';
+      return n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
-
-    function onlyDigits(str) {
-      return (str || '').replace(/\D/g, '');
-    }
-
-    inputValor.addEventListener('input', () => {
-      const digits = onlyDigits(inputValor.value).slice(0, 9); // evita valores absurdos
-      inputValor.value = formatBRLFromDigits(digits || '0');
-      inputValor.setCustomValidity(
-        digits === '' || Number(digits) === 0 ? 'Informe um valor maior que zero.' : ''
-      );
-    });
-
-    // BotÃµes de sugestÃ£o de valor
-    document.querySelectorAll('[data-valor]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cents = String(Number(btn.dataset.valor) * 100);
-        inputValor.value = formatBRLFromDigits(cents);
-        inputValor.setCustomValidity('');
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        const v = Number(ch.dataset.valor);
+        if (v > 0) inputValor.value = formataBRL(v);
+        else inputValor.focus();
       });
     });
+    // máscara simples no valor
+    inputValor?.addEventListener('input', () => {
+      const num = Number(inputValor.value.replace(/[^\d]/g,''))/100;
+      if (!isNaN(num)) inputValor.value = formataBRL(num);
+    });
 
-    /*
-      ============================================================
-      MÃ‰TODOS DE PAGAMENTO â€” Ã¡rea dinÃ¢mica
-      ============================================================
-      â€¢ PIX: exibe chave e instruÃ§Ã£o (simulada).
-      â€¢ CartÃ£o/Boleto: campos ilustrativos (sem backend nesta entrega).
-    */
-    const areaPagamento = document.getElementById('area-pagamento');
-
-    function renderPagamento(tipo) {
-      if (tipo === 'pix') {
-        areaPagamento.innerHTML = `
-          <h3>PIX</h3>
-          <p>Use a chave PIX abaixo no seu app bancÃ¡rio:</p>
-          <p><strong>pix@ong-exemplo.org</strong></p>
-          <small>ApÃ³s concluir no banco, clique em "Confirmar doaÃ§Ã£o".</small>
-        `;
-      } else if (tipo === 'cartao') {
-        areaPagamento.innerHTML = `
-          <h3>CartÃ£o (simulaÃ§Ã£o)</h3>
-          <label>NÃºmero do cartÃ£o *</label>
-          <input placeholder="0000 0000 0000 0000" inputmode="numeric" required>
-          <div class="grid" style="grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;">
-            <div>
-              <label>Validade *</label>
-              <input placeholder="MM/AA" required>
-            </div>
-            <div>
-              <label>CVC *</label>
-              <input placeholder="000" inputmode="numeric" maxlength="4" required>
-            </div>
-          </div>
-          <small>Somente para fins didÃ¡ticos nesta entrega (nÃ£o processa pagamento real).</small>
-        `;
-      } else { // boleto
-        areaPagamento.innerHTML = `
-          <h3>Boleto (simulaÃ§Ã£o)</h3>
-          <p>ApÃ³s confirmar, um boleto serÃ¡ gerado (simulado) para pagamento.</p>
-          <small>Fins didÃ¡ticos nesta entrega.</small>
-        `;
-      }
+    // —— alterna áreas por método
+    const radios = document.querySelectorAll('input[name="pagamento"]');
+    function mostra(area){
+      document.getElementById('area-pix').hidden = area !== 'pix';
+      document.getElementById('area-cartao').hidden = area !== 'cartao';
+      document.getElementById('area-boleto').hidden = area !== 'boleto';
     }
+    radios.forEach(r => r.addEventListener('change', () => mostra(r.value)));
+    mostra(document.querySelector('input[name="pagamento"]:checked').value);
 
-    // Estado inicial
-    renderPagamento('pix');
-
-    // Troca conforme seleÃ§Ã£o
-    document.querySelectorAll('input[name="pagamento"]').forEach(r => {
-      r.addEventListener('change', () => renderPagamento(r.value));
-    });
-
-    /*
-      ============================================================
-      VALIDAÃ‡ÃƒO E SUBMISSÃƒO (simulada)
-      ============================================================
-      â€¢ Foca no primeiro invÃ¡lido.
-      â€¢ Mostra alert de sucesso.
-    */
-    const formDoacao = document.getElementById('form-doacao');
-    formDoacao.addEventListener('submit', (e) => {
-      if (!formDoacao.checkValidity()) {
-        e.preventDefault();
-        const inval = formDoacao.querySelector(':invalid');
-        if (inval) inval.focus();
-        return;
-      }
-      // Checa valor > 0
-      const digits = onlyDigits(inputValor.value);
-      if (!digits || Number(digits) === 0) {
-        e.preventDefault();
-        inputValor.setCustomValidity('Informe um valor maior que zero.');
-        inputValor.reportValidity();
-        inputValor.focus();
-        return;
-      }
-
-      e.preventDefault(); // simulaÃ§Ã£o
-      alert('Obrigado! Sua doaÃ§Ã£o foi registrada (simulaÃ§Ã£o para a Entrega I).');
-      formDoacao.reset();
-      renderPagamento('pix'); // volta para o estado inicial
-      inputValor.value = '';  // limpa formataÃ§Ã£o
-    });
-
-    // Newsletter (simples)
-    const formNews = document.getElementById('form-newsletter');
-    formNews.addEventListener('submit', (e) => {
-      if (!formNews.checkValidity()) {
-        e.preventDefault();
-        const inval = formNews.querySelector(':invalid');
-        if (inval) inval.focus();
-      } else {
-        e.preventDefault();
-        alert('InscriÃ§Ã£o na newsletter realizada! Obrigado.');
-        formNews.reset();
-      }
+    // —— envio fake
+    document.getElementById('form-doacao')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('msg-status');
+      if (msg) msg.textContent = '✅ Doação registrada! Enviamos os detalhes para o seu e-mail.';
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-

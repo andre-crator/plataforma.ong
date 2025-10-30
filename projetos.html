@@ -1,130 +1,114 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <!--
-    ============================================================
-    Plataforma ONG â€” PROJETOS
-    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
-    Requisitos atendidos:
-      â€¢ Estrutura semÃ¢ntica (header/nav/main/footer)
-      â€¢ FormulÃ¡rio de inscriÃ§Ã£o em projetos
-      â€¢ Campos: dados pessoais, projeto, experiÃªncia, motivaÃ§Ã£o
-      â€¢ ValidaÃ§Ã£o HTML5 + comentÃ¡rios explicativos
-    ============================================================
-  -->
-  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projetos â€¢ Plataforma ONG</title>
-  <meta name="description" content="Inscreva-se para participar dos projetos sociais da ONG." />
-
-  <!-- CSS do projeto -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  
-  <link rel='stylesheet' href='css/reset.css'>
-  <link rel='stylesheet' href='css/variables.css'>
-  <link rel='stylesheet' href='css/layouts.css'>
-  <link rel='stylesheet' href='css/components.css'>
-  <link rel='stylesheet' href='css/styles.css'>
+  <title>Projetos • Plataforma ONG</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
+  <!-- ===== NAVBAR ===== -->
   <header class="navbar">
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <div class="navbar__inner container">
-    <a class="navbar__brand" href="index.html">Esperança Viva</a>
+    <div class="navbar__inner container">
+      <a class="navbar__brand" href="index.html">Esperança Viva</a>
 
-    <!-- Botão hambúrguer (mobile) -->
-    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
-      ☰ Menu
-    </button>
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+        ☰ Menu
+      </button>
 
-    <!-- Menu principal -->
-    <nav class="navbar__menu" aria-label="Menu principal">
-      <a class="navbar__link" href="index.html">Início</a>
+      <!-- Menu principal -->
+      <nav class="navbar__menu" aria-label="Menu principal">
+        <a class="navbar__link" href="index.html">Início</a>
 
-      <div class="dropdown">
-        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
-        <div class="dropdown__menu" role="menu">
-          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
-          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        <div class="dropdown">
+          <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+          <div class="dropdown__menu" role="menu">
+            <a class="dropdown__item" href="#ativos" role="menuitem">Ativos</a>
+            <a class="dropdown__item" href="#encerrados" role="menuitem">Encerrados</a>
+          </div>
         </div>
-      </div>
 
-      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
-      <a class="navbar__link" href="doacoes.html">Doações</a>
-      <a class="navbar__link" href="transparencia.html">Transparência</a>
-      <a class="navbar__link" href="sobre.html">Sobre</a>
-      <a class="navbar__link" href="contato.html">Contato</a>
-      <a class="navbar__link" href="blog.html">Blog</a>
-    </nav>
-  </div>
-</header>
+        <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+        <a class="navbar__link" href="doacoes.html">Doações</a>
+        <a class="navbar__link" href="transparencia.html">Transparência</a>
+        <a class="navbar__link" href="sobre.html">Sobre</a>
+        <a class="navbar__link" href="contato.html">Contato</a>
+        <a class="navbar__link" href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== /NAVBAR ===== -->
 
-  <!-- ========================= ConteÃºdo Principal ========================= -->
-  <main id="conteudo-principal">
-    # Adiciona/mescla class="container" em todas as tags <main> dos .html
-Get-ChildItem -Recurse -Include *.html | ForEach-Object {
-  $c = Get-Content $_.FullName -Raw
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Projetos</h1>
+    <p>Conheça nossas iniciativas e veja como participar.</p>
+    <div class="actions">
+      <a class="button button--primary" href="#ativos">Ver projetos ativos</a>
+      <a class="button" href="inscricao-projeto.html">Inscrever-se em um projeto</a>
+    </div>
+  </section>
 
-  # Caso 1: <main> sem atributo class -> vira <main class="container">
-  $c = [regex]::Replace($c, '(?i)<main(\s*)(?=>)', '<main class="container"$1')
+  <!-- ===== PROJETOS ATIVOS ===== -->
+  <main class="section container" id="ativos" tabindex="-1" aria-labelledby="titulo-ativos">
+    <h2 id="titulo-ativos">Projetos Ativos</h2>
+    <div class="grid" style="margin-top: var(--space-3)">
+      <article class="card">
+        <span class="badge">Saúde</span>
+        <h3>Clínica Solidária</h3>
+        <p>Atendimento básico com equipe de voluntários e encaminhamentos.</p>
+        <a class="button" href="inscricao-projeto.html">Participar</a>
+      </article>
 
-  # Caso 2: <main class="..."> e ainda não contém "container" -> insere container no início
-  $c = [regex]::Replace($c, '(?i)<main([^>]?)class="(?![^"]\bcontainer\b)([^"]*)"', '<main$1class="container $2"')
+      <article class="card">
+        <span class="badge">Educação</span>
+        <h3>Ref ref Oratória Jovem</h3>
+        <p>Oficinas semanais de comunicação, leitura e reforço escolar.</p>
+        <a class="button" href="inscricao-projeto.html">Participar</a>
+      </article>
 
-  Set-Content $_.FullName $c -Encoding UTF8
-  Write-Host "✅ Atualizado: $($_.Name)"
-  
-}
+      <article class="card">
+        <span class="badge">Assistência</span>
+        <h3>Cestas de Acolhimento</h3>
+        <p>Distribuição de alimentos e itens de higiene para famílias cadastradas.</p>
+        <a class="button" href="inscricao-projeto.html">Participar</a>
+      </article>
+    </div>
   </main>
 
-  <!-- ============================== RodapÃ© ============================== -->
+  <!-- ===== PROJETOS ENCERRADOS ===== -->
+  <section class="section container" id="encerrados" aria-labelledby="titulo-encerrados">
+    <h2 id="titulo-encerrados">Projetos Encerrados</h2>
+    <div class="grid" style="margin-top: var(--space-3)">
+      <article class="card">
+        <span class="badge">Cultura</span>
+        <h3>Festival de Inverno 2024</h3>
+        <p>Mostra comunitária com apresentações artísticas locais.</p>
+        <span class="button" aria-disabled="true">Encerrado</span>
+      </article>
+
+      <article class="card">
+        <span class="badge">Captação</span>
+        <h3>Mutirão Solidário</h3>
+        <p>Campanha de arrecadação para reforma do espaço multiuso.</p>
+        <span class="button" aria-disabled="true">Encerrado</span>
+      </article>
+
+      <article class="card">
+        <span class="badge">Esporte</span>
+        <h3>Viradão Esportivo</h3>
+        <p>Atividades físicas e recreação para todas as idades.</p>
+        <span class="button" aria-disabled="true">Encerrado</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== RODAPÉ ===== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
+    © 2025 ONG Exemplo — Todos os direitos reservados
   </footer>
 
-  <!-- ============================== Scripts ============================== -->
-  <script>
-    // Atualiza ano no rodapÃ©
-    document.getElementById('ano-atual').textContent = new Date().getFullYear();
-
-    /*
-      ============================================================
-      ValidaÃ§Ã£o HTML5 com UX melhorada
-      ============================================================
-      - Impede envio se houver campos invÃ¡lidos.
-      - Foca no primeiro campo invÃ¡lido.
-      - Mostra alerta de confirmaÃ§Ã£o ao enviar.
-    */
-    const form = document.getElementById('form-projetos');
-
-    form.addEventListener('submit', (e) => {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        const primeiroInvalido = form.querySelector(':invalid');
-        if (primeiroInvalido) {
-          primeiroInvalido.focus();
-        }
-      } else {
-        e.preventDefault();
-        alert('InscriÃ§Ã£o enviada com sucesso! Obrigado por participar.');
-        form.reset();
-      }
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

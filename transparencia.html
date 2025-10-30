@@ -1,233 +1,201 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <!--
-    ============================================================
-    Plataforma ONG â€” TRANSPARÃŠNCIA
-    Entrega I â€“ Fundamentos e EstruturaÃ§Ã£o
-    Requisitos atendidos nesta pÃ¡gina:
-      â€¢ Estrutura semÃ¢ntica (header/nav/main/section/footer)
-      â€¢ GrÃ¡ficos em <canvas>: pizza, linha e barras (Chart.js)
-      â€¢ Acessibilidade: tÃ­tulos claros, aria-label nos canvas
-      â€¢ ComentÃ¡rios explicativos no cÃ³digo
-    ObservaÃ§Ãµes:
-      â€¢ Os dados abaixo sÃ£o exemplos realistas. VocÃª pode
-        carregÃ¡-los de /data/*.json depois (futuras entregas).
-    ============================================================
-  -->
-  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TransparÃªncia â€¢ Plataforma ONG</title>
-  <meta name="description" content="PrestaÃ§Ã£o de contas: distribuiÃ§Ã£o de recursos, evoluÃ§Ã£o de voluntÃ¡rios e impacto por regiÃ£o." />
-
-  <!-- CSS do projeto -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  
-  <link rel='stylesheet' href='css/reset.css'>
-  <link rel='stylesheet' href='css/variables.css'>
-  <link rel='stylesheet' href='css/layouts.css'>
-  <link rel='stylesheet' href='css/components.css'>
-  <link rel='stylesheet' href='css/styles.css'>
+  <title>Transparência • Plataforma ONG</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- ===================== CabeÃ§alho / NavegaÃ§Ã£o ===================== -->
+  <!-- ===== NAVBAR ===== -->
   <header class="navbar">
-  <meta charset="UTF-8">
-  
-  <meta charset=''UTF-8''>
-  <div class="navbar__inner container">
-    <a class="navbar__brand" href="index.html">Esperança Viva</a>
+    <div class="navbar__inner container">
+      <a class="navbar__brand" href="index.html">Esperança Viva</a>
 
-    <!-- Botão hambúrguer (mobile) -->
-    <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
-      ☰ Menu
-    </button>
+      <button class="navbar__toggle button button--sm" aria-label="Abrir menu" aria-expanded="false">
+        ☰ Menu
+      </button>
 
-    <!-- Menu principal -->
-    <nav class="navbar__menu" aria-label="Menu principal">
-      <a class="navbar__link" href="index.html">Início</a>
+      <nav class="navbar__menu" aria-label="Menu principal">
+        <a class="navbar__link" href="index.html">Início</a>
 
-      <div class="dropdown">
-        <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
-        <div class="dropdown__menu" role="menu">
-          <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
-          <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+        <div class="dropdown">
+          <a class="navbar__link" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos ▾</a>
+          <div class="dropdown__menu" role="menu">
+            <a class="dropdown__item" href="projetos.html#ativos" role="menuitem">Ativos</a>
+            <a class="dropdown__item" href="projetos.html#encerrados" role="menuitem">Encerrados</a>
+          </div>
         </div>
+
+        <a class="navbar__link" href="voluntarios.html">Voluntários</a>
+        <a class="navbar__link" href="doacoes.html">Doações</a>
+        <a class="navbar__link is-active" href="transparencia.html">Transparência</a>
+        <a class="navbar__link" href="sobre.html">Sobre</a>
+        <a class="navbar__link" href="contato.html">Contato</a>
+        <a class="navbar__link" href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== /NAVBAR ===== -->
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Transparência</h1>
+    <p>Abaixo apresentamos a distribuição de recursos, indicadores de impacto e evolução mensal.</p>
+  </section>
+
+  <!-- ===== KPIs ===== -->
+  <section class="section container">
+    <div class="grid">
+      <div class="card">
+        <h3>Arrecadação (mês)</h3>
+        <p class="kpi">R$ 38.450,00</p>
+        <p class="muted">+12% vs. mês anterior</p>
+      </div>
+      <div class="card">
+        <h3>Pessoas alcançadas</h3>
+        <p class="kpi">1.286</p>
+        <p class="muted">em programas ativos</p>
+      </div>
+      <div class="card">
+        <h3>Custo adm.</h3>
+        <p class="kpi">6,8%</p>
+        <p class="muted">meta &lt; 10%</p>
+      </div>
+      <div class="card">
+        <h3>Voluntários ativos</h3>
+        <p class="kpi">214</p>
+        <p class="muted">últimos 90 dias</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GRÁFICOS ===== -->
+  <section class="section container">
+    <div class="grid">
+      <div class="card">
+        <h3>Distribuição de despesas</h3>
+        <canvas id="pie-despesas" width="460" height="300" role="img" aria-label="Gráfico de pizza de despesas"></canvas>
+        <ul class="muted" style="margin-top: var(--space-2)">
+          <li>Programas sociais: 72%</li>
+          <li>Captação e comunicação: 12%</li>
+          <li>Administrativo: 9%</li>
+          <li>Reserva técnica: 7%</li>
+        </ul>
       </div>
 
-      <a class="navbar__link" href="voluntarios.html">Voluntários</a>
-      <a class="navbar__link" href="doacoes.html">Doações</a>
-      <a class="navbar__link" href="transparencia.html">Transparência</a>
-      <a class="navbar__link" href="sobre.html">Sobre</a>
-      <a class="navbar__link" href="contato.html">Contato</a>
-      <a class="navbar__link" href="blog.html">Blog</a>
-    </nav>
-  </div>
-</header>
+      <div class="card">
+        <h3>Arrecadação por mês</h3>
+        <canvas id="bar-arrecadacao" width="460" height="300" role="img" aria-label="Gráfico de barras da arrecadação mensal"></canvas>
+        <p class="muted">jan–jun (valores fictícios para demonstração)</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- ========================= ConteÃºdo Principal ========================= -->
-  <main id="conteudo-principal">
-    <section class="card" aria-labelledby="titulo-transp">
-      <h1 id="titulo-transp">TransparÃªncia</h1>
-      <p>
-        Abaixo apresentamos a distribuiÃ§Ã£o de recursos por projeto, a evoluÃ§Ã£o de
-        voluntÃ¡rios ao longo do tempo e o impacto social por regiÃ£o (valores fictÃ­cios
-        para demonstraÃ§Ã£o).
-      </p>
-    </section>
+  <!-- ===== TABELA ===== -->
+  <section class="section container">
+    <div class="card">
+      <h3>Prestação de contas (resumo)</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th>Entradas (R$)</th>
+              <th>Saídas (R$)</th>
+              <th>Saldo (R$)</th>
+              <th>Obs.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Jan</td><td>31.200,00</td><td>28.450,00</td><td>2.750,00</td><td>Campanha de verão</td></tr>
+            <tr><td>Fev</td><td>33.800,00</td><td>29.120,00</td><td>4.680,00</td><td>+ doações recorrentes</td></tr>
+            <tr><td>Mar</td><td>29.500,00</td><td>27.900,00</td><td>1.600,00</td><td>—</td></tr>
+            <tr><td>Abr</td><td>35.700,00</td><td>31.250,00</td><td>4.450,00</td><td>evento beneficente</td></tr>
+            <tr><td>Mai</td><td>36.900,00</td><td>33.000,00</td><td>3.900,00</td><td>—</td></tr>
+            <tr><td>Jun</td><td>38.450,00</td><td>34.100,00</td><td>4.350,00</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    <!-- DistribuiÃ§Ã£o de recursos por projeto (pizza) -->
-    <section class="card" aria-labelledby="titulo-pizza">
-      <h2 id="titulo-pizza">DistribuiÃ§Ã£o de recursos por projeto</h2>
-      <!--
-        aria-label dÃ¡ contexto do que o grÃ¡fico mostra
-        role="img" ajuda leitores de tela quando o grÃ¡fico Ã© meramente visual
-      -->
-      <canvas id="graficoRecursos" width="480" height="320"
-              aria-label="GrÃ¡fico de pizza da distribuiÃ§Ã£o de recursos por projeto"
-              role="img"></canvas>
-      <small>Legenda: Projetos A, B e C â€” porcentagem do orÃ§amento destinado no trimestre.</small>
-    </section>
-
-    <!-- EvoluÃ§Ã£o de voluntÃ¡rios (linha) -->
-    <section class="card" aria-labelledby="titulo-linha">
-      <h2 id="titulo-linha">EvoluÃ§Ã£o de voluntÃ¡rios ao longo do tempo</h2>
-      <canvas id="graficoVoluntarios" width="480" height="320"
-              aria-label="GrÃ¡fico de linha da evoluÃ§Ã£o de voluntÃ¡rios por mÃªs"
-              role="img"></canvas>
-      <small>Meses do ano corrente. TendÃªncia geral de crescimento do engajamento.</small>
-    </section>
-
-    <!-- Impacto por regiÃ£o (barras) -->
-    <section class="card" aria-labelledby="titulo-barras">
-      <h2 id="titulo-barras">Impacto social por regiÃ£o</h2>
-      <canvas id="graficoImpacto" width="480" height="320"
-              aria-label="GrÃ¡fico de barras de pessoas alcanÃ§adas por regiÃ£o"
-              role="img"></canvas>
-      <small>Quantidade de pessoas alcanÃ§adas por macro-regiÃ£o.</small>
-    </section>
-  </main>
-
-  <!-- ============================== RodapÃ© ============================== -->
   <footer>
-    <small>&copy; <span id="ano-atual"></span> ONG Exemplo â€¢ Todos os direitos reservados</small>
+    © 2025 ONG Exemplo — Todos os direitos reservados
   </footer>
 
-  <!-- ============================== Scripts ============================== -->
-  <!-- Chart.js por CDN (atende a Entrega I sem build complexo) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="js/main.js"></script>
   <script>
-    // Atualiza ano no rodapÃ©
-    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    // === Gráfico de pizza (canvas puro)
+    (function(){
+      const ctx = document.getElementById('pie-despesas')?.getContext('2d');
+      if (!ctx) return;
+      const data = [72, 12, 9, 7]; // %
+      const labels = ['Programas', 'Captação', 'Adm.', 'Reserva'];
+      const total = data.reduce((a,b)=>a+b,0);
+      const colors = ['#4CAF50','#2196F3','#9C27B0','#FF9800'];
+      let start = -Math.PI/2;
 
-    /*
-      ============================================================
-      Dados de exemplo (poderÃ£o vir de /data/*.json futuramente)
-      ============================================================
-    */
-    const dadosRecursos = {
-      labels: ['Projeto A', 'Projeto B', 'Projeto C'],
-      valores: [45, 30, 25] // em %
-    };
+      data.forEach((val, i) => {
+        const angle = (val/total) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.arc(150,150,120, start, start + angle);
+        ctx.closePath();
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fill();
+        start += angle;
+      });
 
-    const dadosVoluntarios = {
-      labels: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-      valores: [12,18,23,31,40,55,60,68,72,80,86,92]
-    };
+      // legenda simples
+      ctx.font = '12px system-ui, -apple-system, sans-serif';
+      ctx.textBaseline = 'middle';
+      labels.forEach((lb, i) => {
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fillRect(320, 40 + i*24, 12, 12);
+        ctx.fillStyle = '#333';
+        ctx.fillText(lb, 340, 46 + i*24);
+      });
+    })();
 
-    const dadosImpacto = {
-      labels: ['Norte','Nordeste','Centro-Oeste','Sudeste','Sul'],
-      valores: [320, 410, 180, 560, 290]
-    };
+    // === Gráfico de barras (canvas puro)
+    (function(){
+      const c = document.getElementById('bar-arrecadacao');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const meses = ['Jan','Fev','Mar','Abr','Mai','Jun'];
+      const valores = [31200,33800,29500,35700,36900,38450];
 
-    /*
-      ============================================================
-      CriaÃ§Ã£o dos 3 grÃ¡ficos com Chart.js
-      ============================================================
-      â€¢ Responsivo por padrÃ£o; canvas tem width/height para layout estÃ¡vel.
-      â€¢ Utilizamos cores automÃ¡ticas do Chart.js (sem estilizaÃ§Ã£o pesada).
-    */
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1) Pizza â€” DistribuiÃ§Ã£o de recursos por projeto
-      const ctxPie = document.getElementById('graficoRecursos');
-      if (ctxPie) {
-        new Chart(ctxPie, {
-          type: 'pie',
-          data: {
-            labels: dadosRecursos.labels,
-            datasets: [{
-              data: dadosRecursos.valores
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { position: 'bottom', labels: { boxWidth: 16 } },
-              title: { display: false }
-            }
-          }
-        });
-      }
+      const w = c.width, h = c.height, pad = 40;
+      const max = Math.max(...valores) * 1.15;
+      const bw = (w - pad*2) / valores.length * 0.7;
+      const gap = (w - pad*2) / valores.length * 0.3;
 
-      // 2) Linha â€” EvoluÃ§Ã£o de voluntÃ¡rios
-      const ctxLine = document.getElementById('graficoVoluntarios');
-      if (ctxLine) {
-        new Chart(ctxLine, {
-          type: 'line',
-          data: {
-            labels: dadosVoluntarios.labels,
-            datasets: [{
-              label: 'VoluntÃ¡rios',
-              data: dadosVoluntarios.valores,
-              tension: 0.3,       // curva suave
-              pointRadius: 3      // destaca pontos
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: { beginAtZero: true, title: { display: true, text: 'Pessoas' } },
-              x: { title: { display: true, text: 'Meses' } }
-            }
-          }
-        });
-      }
+      // eixo
+      ctx.strokeStyle = '#999';
+      ctx.beginPath();
+      ctx.moveTo(pad, h - pad);
+      ctx.lineTo(w - pad, h - pad);
+      ctx.moveTo(pad, h - pad);
+      ctx.lineTo(pad, pad);
+      ctx.stroke();
 
-      // 3) Barras â€” Impacto social por regiÃ£o
-      const ctxBar = document.getElementById('graficoImpacto');
-      if (ctxBar) {
-        new Chart(ctxBar, {
-          type: 'bar',
-          data: {
-            labels: dadosImpacto.labels,
-            datasets: [{
-              label: 'Pessoas alcanÃ§adas',
-              data: dadosImpacto.valores
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: { beginAtZero: true, title: { display: true, text: 'Pessoas' } },
-              x: { title: { display: true, text: 'RegiÃµes' } }
-            }
-          }
-        });
-      }
-    });
+      // barras
+      valores.forEach((v, i) => {
+        const x = pad + i * (bw + gap) + gap/2;
+        const bh = (v / max) * (h - pad*2);
+        ctx.fillStyle = '#2196F3';
+        ctx.fillRect(x, h - pad - bh, bw, bh);
+
+        ctx.fillStyle = '#333';
+        ctx.font = '12px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(meses[i], x + bw/2, h - pad + 16);
+
+        ctx.textAlign = 'right';
+        ctx.fillText('R$ ' + v.toLocaleString('pt-BR'), x + bw, h - pad - bh - 6);
+      });
+    })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
